@@ -1,0 +1,82 @@
+\documentclass[fleqn]{article}
+\setlength{\mathindent}{3pt}
+
+\input{structure.tex}
+
+
+\begin{document}
+From previous arguments, we have the flow equations of a metric for two scalars $\varphi _1$ and $\varphi _2$ with the metric:
+\begin{align}
+ds^{2} = \frac{1}{\varphi _2 ^{2}} (d\varphi _1 ^{2} + d\varphi_{2} ^{2})
+\end{align}
+with the homogeneous quadratic function of $\varphi _1$ and $\varphi _2$ as a potential:
+\begin{align}
+V = \frac{1}{2} \sum_{i,j} M_{ij} \varphi ^{i} \varphi ^{j}
+\end{align}
+which are given by:
+\begin{align}
+&\mu \frac{\partial}{\partial \mu} g_{AB} = \frac{1}{8\pi^{2}} (\mathcal{R}_{AB} + \mu ^{2} R_{AB}) \\
+&\mu \frac{\partial}{\partial \mu} M_{ij} = 0
+\end{align}
+where:
+\begin{align}
+&R_{AB} = \begin{bmatrix}
+-\frac{1}{\varphi_{2}^{2}}  & 0 \\
+0 & -\frac{1}{\varphi _{2}^{2}}
+\end{bmatrix} \\
+&\mathcal{R}_{AB} = -\text{Tr} (H_{CD} R_{CADB})  = -\frac{1}{\varphi _{2} ^{2}} \begin{bmatrix}
+M_{22} & -M_{12} \\ 
+-M_{12} & M_{11} 
+\end{bmatrix}
+\end{align}
+Thus, for a variation of the RG scale, as the metric flows, there would be modifications of geodesics and distances. The original geodesics are obtained from the geodesics equation:
+\begin{align}
+\frac{d^{2} \varphi ^{k}} {ds^{2}} + \Gamma _{ij} ^{k} \frac{d\varphi ^{i}}{ds} \frac{d\varphi^{j}}{ds} = 0
+\end{align}
+This leads:
+\begin{align}
+\begin{cases}
+\ddot{\varphi _{1}} - \frac{2}{\varphi _{2}} \dot{\varphi _1} \dot{\varphi _2} = 0 \\
+\ddot{\varphi _{2}} + \frac{1}{\varphi _{2}} (\dot{\varphi_{1}})^{2} - \frac{1}{\varphi _{2}} (\dot{\varphi _{2}})^{2} = 0
+\end{cases}
+\end{align}
+Suppose $\dot{\varphi _{1}} = 0$, then:
+\begin{align}
+&\varphi _{2} \ddot{\varphi _{2}} - \dot{\varphi_{2}} ^{2}= 0 \nonumber \\
+&\Leftrightarrow \frac{d}{ds} (\frac{\dot{\varphi _{2}}} {\varphi _{2} })  = \frac{\varphi _{2} \ddot{\varphi _{2}}- \dot{\varphi _{2}} ^{2}} {\varphi _{2} ^{2}}= 0 \nonumber \\
+& \Leftrightarrow \frac{\dot{\varphi_{2}}} {\varphi _{2} } = c
+\end{align}
+where c is a real constant. Integrating with respective to s gives $\varphi _{2} = e^{c(s-s_{0})}$, for some real constant $s_{0}$. If s stands for the arc length, there is a constraint about c such as:
+\begin{align}
+1= g_{ij} \dot{\varphi}^{i} \dot{\varphi}^{j}  = \frac{1}{\varphi _{2} ^{2}} (\dot{\varphi _{1}} ^{2}+ \dot{\varphi _{2}} ^{2}) = c^{2}
+\end{align}
+Hence, $c = \pm 1$. This gives the simplest geodesic path, which is a vertical line in the $(\varphi _{1} , \varphi _{2})$ plane, transversed either up- or downward according to the choice of the sing $\pm$. From this, the distance between two points along this path can be deduced as $|\ln \frac{\varphi _{2} } {\tilde{\varphi _{2}}}|$. \\
+\indent Now let us see how these geodesics and distance change as the RG scale varies. If the flow is small enough, the curvature on the right hand side of the flow equation can be replaced with the curvature corresponding to the initial metric. Then, taking $\mu = \Lambda (1- \epsilon)$ with $\epsilon \ll 1$:
+\begin{align}
+g_{AB} (\mu) &= g_{AB} (\Lambda) + \tilde{g}_{AB}  \nonumber  \\
+&= \frac{1}{\varphi _{2} ^{2}} \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix} 
++ \frac{1}{8\pi ^{2}} (-\frac{1}{\varphi _{2}^{2}} \begin{bmatrix}
+M_{22}& -M_{12} \\
+-M_{12} & M_{11} 
+\end{bmatrix} \ln\frac{\mu}{\Lambda} 
++ \frac{1}{2} (\Lambda ^{2} - \mu^2) \frac{1}{\varphi _{2} ^{2}} \begin{bmatrix}
+1 & 0 \\
+0 & 1 
+\end{bmatrix}) \nonumber \\
+& \sim \frac{1}{\varphi _{2} ^{2}} \begin{bmatrix}
+1 + \frac{1}{8\pi ^{2}}(M_{22}\epsilon + \epsilon \Lambda ^{2}) & -\frac{1}{8\pi ^{2}}M_{12} \epsilon \\
+-\frac{1}{8\pi ^{2}} M_{12} \epsilon &  1 + \frac{1}{8\pi ^{2}}(M_{11} \epsilon + \epsilon \Lambda ^{2} )
+\end{bmatrix}
+\end{align}
+Thus, the Christoffel symbols are:
+\begin{align}
+
+\end{align}
+
+
+
+
+\end{document}

@@ -1,0 +1,84 @@
+\documentclass[fleqn]{article}
+\setlength{\mathindent}{3pt}
+
+\input{structure.tex}
+
+
+\begin{document}
+Previously we computed the flow equations of the metric with potential terms in 4d. They come from the divergences of 1-loop effective action:
+\begin{align}
+\Gamma_{\text{1-loop}} ^{\text{div}} =  -\frac{1}{2}\frac{1}{(4\pi)^{2}}\sqrt{g} \int d^{4}x\lbrace (\Lambda ^{2} - \mu^{2} )(R_{AB} \partial _{\alpha} \varphi ^{A} \partial ^{\alpha}\varphi ^{B} + \text{Tr} V_{EF}^{(2)} ) + \ln \frac{\Lambda ^{2}}{\mu ^{2}} \text{Tr}(\frac{1}{2}E^{2}) \rbrace \\
+= -\frac{1}{2}\frac{1}{(4\pi)^{2}}\sqrt{g} \int d^{4}x\lbrace (\Lambda ^{2} - \mu^{2} )(R_{AB} \partial _{\alpha} \varphi ^{A} \partial ^{\alpha}\varphi ^{B} + \text{Tr} V_{EF}^{(2)} )+ \nonumber \\ + \ln \frac{\Lambda ^{2}}{\mu ^{2}} \text{Tr}(V_{AF}^{(2)} R_{FBCD}\partial _{\alpha} \varphi ^{A} \partial ^{\alpha}\varphi^{B} + \frac{1}{2} (V^{(2)})_{GH}^{2}) \rbrace
+\end{align}
+Then, taking $\mu$ derivative, and comparing term by term, the flow equations are given by:
+\begin{align}
+&\mu \frac{\partial}{\partial \mu} G_{AB} = \frac{2}{(4\pi)^{2}}(\mathcal{R} _{AB} + \mu ^{2} R_{AB}) \\
+&\mu \frac{\partial}{\partial \mu} V = \frac{1}{(4\pi)^{2}} (\frac{1}{2} ((V^{(2)})^{2} )_{i}^{i} +  \mu ^{2} (V^{(2)})_{i}^{i})
+\end{align}
+
+\indent Assume now that there are 2 scalars $\varphi _1$ and $\varphi _2$, which make a complex scalar field $\Phi = \varphi _1 +i \varphi _2$, with the metric:
+\begin{align}
+ds^{2} = \frac{d\varphi _{1} ^{2} + d\varphi _{2} ^{2}} {\varphi _{2} ^{2} } = \frac{\Phi \Phi ^{*}} {\operatorname{Im} \Phi ^{2}}
+\end{align}
+from which the curvature can be computed with formulae:
+\begin{align}
+\Gamma _{\mu \nu} ^{\lambda} & = \frac{1}{2} g^{\lambda \alpha} (g_{\alpha \nu , \mu} + g_{\mu \alpha , \nu} - g_{\mu \nu , \alpha}) \\
+R_{\alpha \beta \gamma} ^{\sigma} &= \Gamma _{\alpha \gamma ,\beta} ^{\sigma} - \Gamma _{\beta \gamma , \alpha} ^{\sigma} + \Gamma _{\alpha \gamma }^{\tau} \Gamma _{\tau \beta} ^{\sigma} - \Gamma _{\alpha \beta} ^{\tau} \Gamma _{\tau \gamma} ^{\sigma}
+\end{align}
+here the summation convention is applied. One can easily find with them:
+\begin{align}
+\Gamma _{12}^{1} = \Gamma _{21}^{1} =-\frac{1}{\varphi _2} \\
+\Gamma _{11}^{2} = \frac{1}{\varphi _2} \\
+\Gamma _{22} ^{2} = -\frac{1}{\varphi _2}
+\end{align}
+from which:
+\begin{align}
+R_{212}^{1} = -R_{221}^{1} = R_{121} ^{2} = - R_{112}^{2} = -\frac{1}{\varphi _{2} ^{2}}
+\end{align}
+are the non-zero curvatures. These read:
+\begin{align}
+R_{1212} = R_{2121} = -\frac{1}{\varphi_{2}^{4}} \qquad R_{1221} = R_{2112} =+ \frac{1}{\varphi_{2} ^{4}}
+\end{align}
+Then, non-vanishing components of Ricci tensor are:
+\begin{align}
+R_{11} = R_{22} = -\frac{1}{\varphi _{2} ^{2}}
+\end{align}
+Suppose that the potential is given by the form of the homogeneous quadratic function of $\varphi _1$ and $\varphi _2$:
+\begin{align}
+V = \frac{1}{2} \sum _{i,j} M_{ij} \varphi ^{i} \varphi ^{j}
+\end{align}
+Then, its Hessian matrix is:
+\begin{align}
+H(V) = \begin{bmatrix}
+M_{11} & \frac{1}{2}(M_{12} +M_{21})\\
+\frac{1}{2}(M_{21}+M_{12} )& M_{22}
+\end{bmatrix}
+\end{align}
+So, the flows  are:
+\begin{align}
+\mu \frac{\partial}{\partial \mu} g_{AB} = \frac{2}{(4\pi)^{2}} (\mathcal{R}_{AB} + \mu^{2}R_{AB}) 
+\end{align}
+here $R_{AB} = \begin{bmatrix}
+-\frac{1}{\varphi _{2} ^{2}} & 0 \\
+0 & -\frac{1}{\varphi _{2} ^{2}}
+\end{bmatrix}$, and $\mathcal{R}_{AB}$ is:
+\begin{align}
+\mathcal{R} _{AB} = \text{Tr}(H_{AF} R_{FCDB}) = \frac{1}{\varphi_{2}^{2}}\begin{bmatrix}
+M_{22} & -\frac{1}{2}(M_{12}+M_{21}) \\
+-\frac{1}{2}(M_{21}+ M_{12} ) & M_{11}
+\end{bmatrix}
+\end{align} 
+thus:
+\begin{align}
+\mu \frac{\partial}{\partial \mu} g_{AB} = \frac{2}{(4\pi \varphi_{2})^{2}}\begin{bmatrix}
+M_{22} -\mu ^{2} & -\frac{1}{2}(M_{12}+M_{21}) \\
+-\frac{1}{2}(M_{21}+M_{12}) & M_{11} -\mu^{2}
+\end{bmatrix}
+\end{align}
+Also, taking traces of the Hessian matrix and square, the flow of the potential terms can be obtained. However, notice that in this case since the potential is homogeneous quadratic function, there are no interaction terms in the Hessian matrix. Therefore, when the potential terms are compared, there are no terms matching between the divergent contributions of 1-loop effective action and the action at a scale $\mu$. Eventually:
+\begin{align}
+\mu \frac{\partial}{\partial \mu} M_{ij} = 0
+\end{align}
+
+
+\end{document}

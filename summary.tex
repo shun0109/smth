@@ -1,0 +1,228 @@
+\documentclass[fleqn]{article}
+\setlength{\mathindent}{3pt}
+
+\input{structure.tex}
+
+
+\begin{document}
+%%\section{Renormalization}
+In order to deal with quantities getting to infinities when calculated, we need to "renormalize" those quantities. One way to do this is that we start with the bare Lagrangian, and then split it into two parts:
+\begin{align}
+\mathcal{L} = \mathcal{L}_{r} + \Delta \mathcal{L}
+\end{align}
+where $\mathcal{L}_r$ and $\Delta \mathcal{L}$ are renormalized parameters and counter-terms respectively. The counter-terms could be determined as such they absorb all the divergences arising in the calculations using renormalized quantities. \\
+\indent However, it perhaps more useful, and easier to renormalize theories through a method called Heat Kernel Expansion. With an action $S[\phi]$ and an external source $J$, the partition functional is given:
+\begin{align}
+Z[J] = \int \mathcal{D} \phi \text{exp}(iS[\phi] + iJ\phi) = e^{iW[J]}
+\end{align}
+with a shorthand notation $J\phi = \int d^{d} xJ(x) \phi(x)$. Using the Legendre transform of W, the effective action is defined as:
+\begin{align}
+\Gamma[\phi] = W[J_{\phi}] - J_{\phi}\phi
+\end{align}
+where $J_{\phi}$ stand for the solution to:
+\begin{align}
+\phi(x) = \frac{\delta W[J]}{\delta J(x)}
+\end{align}
+and therefore:
+\begin{align}
+\frac{\delta \Gamma[\phi]}{\delta \phi (x)} &= \int \frac{\delta W[J]}{\delta J(y)} \frac {\delta J(y)}{\delta \phi (x)} - \int \frac{\delta J(y)}{\delta \phi (x) }  - J(x) \nonumber \\
+&= -J(x)
+\end{align}
+Then write $\phi (x)= \phi _{\text{cl}} (x)+ \eta(x)$ with:
+\begin{align}
+\left. \frac{\delta (S[\phi] + J\phi)}{\delta \phi (x)} \right|_{\phi = \phi_{\text{cl}}} = 0
+\end{align}
+and expand the partition function to quadratic order in $\eta$ to obtain:
+\begin{align}
+Z&= e^{iW[J]} = \int \mathcal{D} \phi e^{i[S[\phi] + J\phi]} \nonumber \\
+& \approx \text{exp} (i[S[\phi_{\text{cl}}] + J\phi_{\text{l}}] ) \int \mathcal{D} \eta e^{\left. \frac{i}{2}\int d^{d}x d^{d}y \frac{\delta ^{2} S[\phi]}{\delta \phi(x) \delta \phi(y)} \eta(x)\eta(y) \right|_{\phi_{\text{cl}}}} \nonumber \\
+& = \text{exp} [i(S[\phi_{\text{cl}}] +J\phi_{\text{cl}}) +\left. \frac{i}{2}\text{Tr} \ln \frac{\delta ^{2} S[\phi]}{\delta \phi \delta \phi} \right|_{\phi = \phi_{\text{cl}}}]
+\end{align}
+Therefore:
+\begin{align}
+W[J] = S[\phi_{\text{cl}}] +J\phi_{\text{cl}} + \left. \frac{1}{2} \text{Tr} \ln \frac{\delta ^{2} S[\phi]}{\delta \phi \delta \phi} \right|_{\phi = \phi_{\text{cl}}}
+\end{align}
+Also, to leading order, $\phi$ is equivalent to $\phi _{\text{cl}}$ since:
+\begin{align}
+\phi = \frac{\delta W}{\delta J} = \frac{\delta [S[\phi_{\text{cl}}] + J\phi_{\text{cl}}]} {\delta \phi _{\text{cl}}}\frac{\delta \phi _{\text{cl}}}{\delta J} + \phi _{\text{cl}} = \phi _{\text{cl}}
+\end{align}
+Then, finally we get:
+\begin{align}
+\Gamma [\phi] = S[\phi] + \frac{1}{2} \text{Tr}\ln \frac{\delta S}{\delta \phi \delta \phi}
+\end{align}
+So in order to compute the 1-loop calculation, we need in some way to evaluate the trace. This is when the Heat Kernel Expansion is significant. Introducing the heat kernel:
+\begin{align}
+K(t;x,y;D) = \langle x | \text{exp} (-tD) | y \rangle
+\end{align}
+which satisfies the heat conduction equation:
+\begin{align}
+(\partial _{t} + D_{x})K(t;x,y;D) =0
+\end{align}
+and initial condition:
+\begin{align}
+K(0;x,y;D) = \delta(x-y)
+\end{align}
+Now we need to compute the functional in the form:
+\begin{align}
+\Gamma_{\text{1-loop}} = \frac{1}{2} \text{Tr} \ln D
+\end{align}
+But notice that for each positive eigenvalue $\lambda$ of the operator D:
+\begin{align}
+\ln \lambda = -\int _{0}^{\infty} \frac{dt}{t} e^{-t\lambda}
+\end{align}
+then using heat kernel, 1-loop effective action can be rewritten as:
+\begin{align}
+\Gamma _{\text{1-loop}} &= -\frac{1}{2} \int _{0}^{\infty} \frac{dt}{t} \text{Tr} e^{-tD} \nonumber \\
+&= -\frac{1}{2} \int _{0}^{\infty} \frac{dt}{t} \int d^{d}x \sqrt{g} K(t;x,x;D)
+\end{align}
+According to Vassilevich, there is an asymptotic expansion:
+\begin{align}
+\text{Tr} e^{-tD} \approx \sum_{k\geq0} t^{\frac{k-d}{2}}a_{k}(D)
+\end{align}
+where $a_k$s are called heat kernel coefficients, which are given explicitly for second order operators of the Laplace type represented as $D = -\square + E$:
+\begin{align}
+ a_{0} &= (4\pi)^{-d/2} \int d^{d}x \sqrt{g} \text{Tr} (1) \\
+ a_{2} &= (4\pi)^{-d/2} \frac{1}{6}\int d^{d}x \sqrt{g} \text{Tr} (6E + R) \\
+ a_{4} &= (4\pi)^{-d/2} \frac{1}{360} \int d^{d}x \sqrt{g} \text{Tr} \lbrace 60E_{:kk} + 60RE + 180E^{2} + 12R_{:kk} + 5R^{2} -2R_{ij}R_{ij} + 2R_{ijkl}R_{ijkl} + 30\Omega_{ij}\Omega_{ij} \rbrace
+\end{align}
+and so on. Note that there are finitely many terms which involve the divergence when cut-off are introduced. Taking the derivatives and compare with the coupling of each relative term, the RG flow equations are obtained. Now we have everything necessary for computation of 1-loop effective actions. Let us see how it works through some examples. \\
+\indent For $\phi ^{4}$-theory on $d=4$:
+\begin{align}
+S = \int d^{4} x \frac{1}{2} \partial _{\mu} \phi \partial^{\mu} \phi + \frac{1}{2} m^{2} \phi^{2} +\frac{\lambda}{4!}\phi^{4}
+\end{align}
+Thus, the operator D for this case is:
+\begin{align}
+D = -\square + m^{2} + \frac{\lambda}{2}\phi ^{2}
+\end{align}
+So the 1-loop effective action is:
+\begin{align}
+\Gamma _{\text{1-loop}} &= \frac{1}{2}\text{Tr} \ln D \nonumber \\
+&= -\frac{1}{2} \int _{\Lambda ^{-2}} ^{\mu ^{-2}} dt \sum t^{\frac{k-4}{2} -1} a_{k} \nonumber \\
+&= -\frac{1}{2} \int _{\Lambda ^{-2}} ^{\mu ^{-2}} dt \lbrace t^{-3} a_0 + t^{-2} a_2 + t^{-1} a_4 + \cdots \rbrace
+\end{align}
+Since only terms diverge are interested, we just need to consider up to $a_4$:
+\begin{align}
+\Gamma _{\text{1-loop}}^{\text{div}} &= -\frac{1}{2} \lbrace \frac{1}{2} (\Lambda ^{4} - \mu ^{4}) + (\Lambda ^{2} - \mu^{2} )a_{2} + \ln \frac{\Lambda ^{2}}{\mu ^{2}}a_4 \rbrace \nonumber \\
+&= -\frac{1}{2} \frac{1}{(4\pi)^2}\lbrace \frac{1}{2} (\Lambda ^{4} - \mu ^{4})\int d^{4}x +(\Lambda ^{2} - \mu^{2} )\int d^{4}x (m^{2} + \frac{\lambda}{2} \phi^2) +  \frac{1}{2}\ln \frac{\Lambda ^{2}}{\mu ^{2}} \int d^{4}x (m^{2} + \frac{\lambda}{2} \phi^2)^2 \rbrace
+\end{align}
+here the UV and IR cutoff $\Lambda$ and $\mu$ are introduced on the proper time integral. Since this is equal to the action at the energy scale $\mu$, the flow equations are given:
+\begin{align}
+\mu \frac{\partial m_{\mu}^{2}}{\partial \mu} & = \frac{1}{16\pi ^{2}} (\mu ^{2} \lambda + \lambda m^{2}) \\
+\mu \frac{\partial \lambda _{\mu}} {\partial \mu} &= \frac{3}{16\pi ^{2}} \lambda ^{2}  
+\end{align}
+They indeed match with results arising from other methods of calculations. \\
+\indent For a generic potential $V(\phi)$:
+\begin{align}
+D = -\square + V''(\phi)
+\end{align}
+and thus:
+\begin{align}
+\Gamma _{\text{1-loop}}^ {\text{div}} &= -\frac{1}{2} \int _{\Lambda ^{-2}} ^{\mu ^{-2}} dt \sum _{k \leq d} t^{\frac{k-d}{2} -1} a_{k} 
+\end{align}
+Eventually, defining $\tau \equiv \ln \frac{\mu}{\mu_{0}}$, the flow equations are:
+\begin{align}
+\partial _{\tau} V_{\mu} = -\frac{1}{2} \partial _{\tau} \lbrace \int _{\Lambda ^{-2} } ^{\mu ^{-2}} dt \sum _{k \leq d} t^{\frac{k-d}{2} -1} a_k \rbrace 
+\end{align}
+This can be generalized for the multiple scalars theories. For such cases, $V''$ is the Hessian matrix and therefore for instance for $d=4$:
+\begin{align}
+\Gamma _{\text{1-loop}}^{\text{div}} &= -\frac{1}{2} \frac{1}{(4\pi)^{2}} \int d^{4}x\lbrace \frac{1}{2} (\Lambda ^{4} - \mu^{4}) + (\Lambda ^{2} - \mu ^{2})\text{Tr} V'' + \frac{1}{2} \ln \frac{\Lambda ^{2}} {\mu ^{2}} \text{Tr} (V'')^2 \rbrace 
+\end{align}
+and one may have flow equations:
+\begin{align}
+\partial _{\tau} V_{\mu} = \frac{1}{16\pi ^{2}} \lbrace \frac{1}{2} \text{Tr} (V'')^2 + \mu ^{2} \text{Tr} V'' \rbrace
+\end{align}
+then running of each coupling can be extracted by comparing every relevant terms. \\
+\indent Similarly, the change of metric also can be computed. Consider the action of the non-linear sigma model:
+\begin{align}
+S[\varphi]  = \frac{1}{2} \int d^{d} x \sqrt{g} G_{AB}(\varphi) \partial _{\sigma} \varphi ^{A} \partial ^{\sigma} \varphi ^{B}
+\end{align}
+Writing the field $\varphi(x)$ in terms of its background $\bar{\varphi} (x)$ and the corresponding quantum fluctuation $\zeta(x)$, assume that there is a smooth map $\varphi _s(x)$ such that $\varphi _0 = \bar{\varphi}(x)$, $\varphi _1 = \varphi (x)$ with $\dot{\varphi}_0 = \zeta$. Consider a curve $\varphi _s$ in the target space, which represents the geodesic between $\varphi_0$ and $\varphi _1$:
+\begin{align}
+\ddot{\varphi} _{s}^{A} (x) + \Gamma _{BC} ^{A} \dot{\varphi}_s ^{B} (x) \dot{\varphi}_s ^C(x) = 0
+\end{align}
+with $\Gamma _{BC}^{A}$ denotes the Christoffel symbol corresponding to the target space metric $G_{AB}$. The expansion of the action around the background is:
+\begin{align}
+S[\varphi] &= \left. \sum _{n=0} ^{\infty} \frac{1}{n!} \frac{d^{n}}{ds^{n}} S[\varphi _s] \right|_{s=0} \nonumber \\
+&= \left. \sum_{n=0} ^{\infty} \frac{1}{n!}(\nabla _s)^{n} S[\varphi _s] \right|_{s=0} 
+\end{align}
+where $\nabla _s$ is the covariant derivative along the curve $\varphi _s ^A$. With relations:
+\begin{align}
+\nabla _s \partial _{\mu} \varphi ^{i} &= \partial_{\mu} \frac{d\varphi ^i}{ds} + \partial _{\mu} \varphi ^k \Gamma _{kj}^i \frac{d\varphi ^j}{ds} = \nabla_{\mu} \zeta ^i \\
+\nabla_s &= G_{AB} = 0 \\
+\nabla _s \frac{d\varphi ^i}{ds} &= 0\\
+[\nabla_s , \nabla _{\mu}] Z^{k} &= \frac{d\varphi^i}{ds} \partial _{\mu} \varphi ^j R_{lij}^k Z^l
+\end{align}
+where $Z^i$ is an arbitrary vector, the expansion can be written in:
+\begin{align}
+S[\varphi] &= \frac{1}{2} \int d^{d}x \sqrt{g} G_{AB}(\bar{\varphi})  \partial _{\sigma}\bar{\varphi}^{A} \partial ^{\sigma} \bar{\varphi}^B + \int d^{d}x \sqrt{g} G_{AB}\nabla _{\sigma} \zeta ^{A} \partial ^{\sigma} \bar{\varphi}^{B} + \nonumber \\
+&+ \frac{1}{2} \int d^{d}x \sqrt{g} \lbrace G_{AB} \nabla_{\sigma} \zeta ^{A} \nabla^{\sigma} \zeta ^{B} + R_{ACDB} \zeta ^{C} \zeta ^{D} \partial _{\sigma} \bar{\varphi}^{A} \partial ^{\sigma}\bar{\varphi}^{B} + \cdots
+\end{align}
+From the quadratic part, one finds:
+\begin{align}
+D = -G_{AB} \square + R_{ACDB} \partial _{\sigma} \varphi^{C} \partial ^{\sigma} \varphi^{D}
+\end{align}
+Thus, the 1-loop effective action reads:
+\begin{align}
+\Gamma _{\text{1-loop}} = -\frac{1}{2} \int _{\Lambda ^{-2}}^{\mu ^{-2}} dt (4\pi)^{-d/2} \sqrt{g} &(t^{-d/2 -1} + t^{-d/2}\text{Tr} R_{ACDB} \partial _{\sigma} \varphi ^{C} \partial ^{\sigma} \varphi ^{D} + \nonumber \\
+&+\frac{1}{2}t^{1-d/2}\text{Tr}[(R_{ACDB} \partial _{\sigma} \varphi ^{C} \partial ^{\sigma} \varphi ^{D})^2] + \cdots  )  
+\end{align}
+Therefore, in particular, for $d=2$, the flow is:
+\begin{align}
+\beta &= \mu \frac{\partial} {\partial \mu} G_{AB,\mu} \nonumber \\
+&= \frac{1}{2\pi} R_{AB} 
+\end{align}
+Adding a generic potential to the action, the operator simply becomes:
+\begin{align}
+D = -G_{AB}\square + R_{ACDB} \partial _{\sigma} \varphi^{C} \partial ^{\sigma} \varphi ^{D} + V^{(2)}
+\end{align}
+with $V^{(2)}$ is a Hessian matrix. Flows of every couplings in the potential can be extracted from:
+\begin{align}
+\mu \frac{\partial}{\partial \mu} V_{\mu} = \frac{1}{4\pi} \text{Tr} V^{(2)}
+\end{align}
+For $d=4$, there must be $a_4$ term on the effective action involving the divergence:
+\begin{align}
+\Gamma_{\text{1-loop}} ^{\text{div}} &= -\frac{1}{2} \int _{\Lambda ^{-2}} ^{\mu ^{-2}} dt \lbrace t^{-3} a_0 + t^{-2}a_2 + t^{-1} a_4 \rbrace \nonumber \\
+&= -\frac{1}{2} (4\pi)^{-2} \sqrt{g}\int d^{4}x \lbrace \frac{1}{2} (\Lambda ^{4} - \mu ^{4}) + (\Lambda ^{2} - \mu ^{2}) (R_{DC} \partial _{\sigma} \varphi ^{C} \partial ^{\sigma} \varphi ^{D} + \text{Tr}V^{(2)}) +\nonumber \\
+&+\ln \frac{\Lambda ^{2}}{\mu^2} \text{Tr} [\frac{1}{2}(R_{ACDB} \partial _{\sigma} \varphi ^{C} \partial ^{\sigma} \varphi ^{D} + V^{(2)} )^{2}] \\
+&= \int d^{4}x \frac{1}{2}\sqrt{g} G_{AB,\mu} \partial _{\sigma} \varphi^{A} \partial ^{\sigma} \varphi ^{B} + V_{\mu}
+\end{align}
+Taking $\mu$ derivative:
+\begin{align}
+&\frac{1}{16\pi ^{2}} \sqrt{g} \int d^{4}x \lbrace \text{Tr} [\frac{1}{2}(R_{ACDB} \partial _{\sigma} \varphi ^{C} \partial ^{\sigma} \varphi ^{D} + V^{(2)} )^{2}] + \mu ^{2}  (R_{DC} \partial _{\sigma} \varphi ^{C} \partial ^{\sigma} \varphi ^{D} + \text{Tr}V^{(2)}) \rbrace \nonumber \\
+&= \int d^{4}x \frac{1}{2} \sqrt{g} \mu \frac{\partial}{\partial \mu} G_{AB,\mu} \partial _{\sigma}\varphi^{A} \partial ^{\sigma} \varphi ^{B} + \mu \frac{\partial}{\partial \mu} V_{\mu} 
+\end{align}
+Then, by comparing every relevant terms, all flows can be deduced.
+
+\clearpage
+
+\begin{thebibliography}{9}
+\bibitem{lamport94}
+D.V.Vassilevich \emph{Heat kernel expansion: user’s manual}
+\bibitem{lamport94}
+Alexander N. Efremov, Adam Rançon \emph{Nonlinear sigma models on constant curvature target manifolds: A functional renormalization group approach} 
+\bibitem{lamport94}
+A. O. Barvinsky, W. Wachowsk \emph{Heat kernel expansion for higher order minimal and nonminimal operators}
+\bibitem{texbook}
+Damiano Anselmi \emph{Introduction To Renormalization}
+\bibitem{texbook}
+Mark Srednicki \emph{Quantum Field Theory}
+\bibitem{texbook}
+Michael Peskin, Daniel Schroeder \emph{An Introduction To Quantum Field Theory}
+\bibitem{texbook}
+A. Zee \emph{Quantum Field Theory in a Nutshell}
+\bibitem{lamport94}
+P.S. Howe, G. Papadopoulos, K.S. Stelle \emph{The background field method and the non-linear $\sigma$-model}
+\bibitem{lamport94}
+Luis Alvarez-Gaumé, Daniel Z Freedman, Sunil Mukhi \emph{The background field method and the ultraviolet structure of the supersymmetric nonlinear $\sigma$-model}
+
+\end{thebibliography}
+
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,283 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lachaise Assignment
+% LaTeX Template
+% Version 1.0 (26/6/2018)
+%
+% This template originates from:
+% http://www.LaTeXTemplates.com
+%
+% Authors:
+% Marion Lachaise & François Févotte
+% Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[fleqn]{article}
+\setlength{\mathindent}{3pt}
+
+\input{structure.tex} % Include the file specifying the document structure and custom commands
+
+%----------------------------------------------------------------------------------------
+%	ASSIGNMENT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{Beta Function} % Title of the assignment
+
+%\author{Shun Miyamoto\\ \texttt{smiyamot@bu.edu}} % Author name and email address
+
+%\date{Boston University --- \today} % University, school and/or department name(s) and a date
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+\section{Beta Functions for $\phi ^{4}$ theory} % Numbered section
+\subsection{Setting}
+Let us start with the bare Lagrangian,
+\begin{align}
+\mathcal{L} &= \frac{1}{2}\partial_\mu \phi \partial^{\mu} \phi - \frac{1}{2}m_0^{2}\phi ^{2} - \frac{1}{4!} \lambda_0 \phi^{4}
+\end{align}
+Then, with the renormalized field,
+\begin{align}
+\phi &= Z^{1/2} \phi _r
+\end{align}
+the renormalized Lagrangian takes tthe form;
+\begin{align}
+\mathcal{L} &= \mathcal{L}_r + \Delta \mathcal{L} \nonumber  &\\
+&= (\frac{1}{2}\partial _\mu \phi_r \partial ^{\mu} \phi_r - \frac{1}{2}m^{2}\phi_r ^{2} - \frac{1}{4!}\lambda \phi_r ^{4}) + (\frac{1}{2} \Delta_Z \partial_\mu \phi_r \partial^{\mu} \phi_r- \frac{1}{2}\Delta_m \phi_r ^{2} - \frac{1}{4!}\Delta _{\lambda} \phi_r)&
+\end{align}
+where the counter terms are denoted as;
+\begin{align}
+\Delta_Z =& Z-1, \Delta_m = m_0 ^{2} Z -m^{2}, \Delta _{\lambda} = \lambda_0 Z^{2} - \lambda&
+\end{align}
+Also consider the renormalized Green's functions defined with the renormalized fields and depend on the scale $\mu$, the coupling $\lambda$ and the mass $m^{2}$;
+\begin{align}
+\textit{G}_r(x_1,x_2,...,x_n:\mu, \lambda, m^{2} ) &= \langle \phi_r(x_1) ... \phi_r(x_n) \rangle&
+\end{align}
+On the other hand, the bare Green's functions are defined with the bare fields and depend on the bare coupling $\lambda _0$ and the bare mass $m_0^{2}$:
+\begin{align}
+\textit{G}(x_1,x_2,...,x_n: \lambda_0, m_0^{2} ) &= \langle \phi(x_1) ... \phi(x_n) \rangle&
+\end{align}
+Recalling that $\phi(x) = Z^{1/2} \phi_r (x)$, where Z is depending on the scaling $\mu$, one may deduce that:
+\begin{align}
+\textit{G}(x_1,x_2,...,x_n: \lambda_0, m_0^{2} ) &=  Z^{1/2} \textit{G}_r(x_1,x_2,...,x_n:\mu, \lambda, m^{2} ) &
+\end{align}
+under the infinitesimal transformations $\mu \rightarrow \mu + \delta \mu$, $\lambda \rightarrow \lambda +\delta \lambda$, $m^{2} \rightarrow m^{2} + \delta m^{2}$ combined with $Z \rightarrow Z + \delta Z$:
+\begin{align}
+(\delta \mu \frac{\partial}{\partial \mu} + \delta \lambda \frac{\partial}{\partial \lambda }+ \delta Z \frac{\partial}{\partial Z} + \delta m^{2} \frac{\partial}{\partial m^{2}})Z^{n/2} \textit{G}_r(x_1,x_2,...,x_n:\mu, \lambda, m^{2} ) & = 0 &\nonumber \\
+\Leftrightarrow (\delta \mu \frac{\partial}{\partial \mu} + \delta \lambda \frac{\partial}{\partial \lambda }+\frac{n}{2}\frac{\delta Z}{Z} + \delta m^{2} \frac{\partial}{\partial m^{2}})\textit{G}_r(x_1,x_2,...,x_n:\mu, \lambda, m^{2} ) & = 0 & 
+\end{align}
+Eventually, multiplying by $\frac{\mu}{\delta \mu}$, and rewriting the differentials as derivatives taken at constant value for the bare coupling, it is in the form:
+\begin{align}
+(\mu \frac{\partial}{\partial \mu} + \beta \frac{\partial}{\partial \lambda} + n\gamma + \beta_m m^{2} \frac{\partial}{\partial m^{2}}) \textit{G}_r &=0&
+\end{align}
+where:
+\begin{align}
+\beta &= \mu \frac{\partial \lambda}{\partial \mu}
+ = \frac{\partial \lambda}{\partial \ln \mu}& \\
+ \gamma & = \frac{1}{2}\frac{\mu}{Z} \frac{\partial Z}{\partial \mu} = \frac{\partial \ln Z}{\partial \ln \mu}& \\
+ \beta_m &= \frac{\mu}{m^{2}}\frac{\partial m^{2}}{\partial \mu} = \frac{\partial \ln m^{2}}{\partial \ln \mu}&
+\end{align}
+
+
+
+
+\subsection{Computation}
+First, let us define the renormalization conditions as following:
+\begin{align}
+&\textit{G}_r ^{(2)}( p^{2} = m^{2}) = \frac{i}{p^{2} -m^{2}} + (reg.)&\\
+&i\ \mathcal{A}(s=4m^{2}, t= u =0) = -i\lambda&
+\end{align}
+where $G_r ^{2}$ is a connected 2-point function, and $i\mathcal{A}$ stands for the amplitude for the scattering two scalars into two scalars. Also, the Mandelstam variables are $s = (p_1 + p_2)^{2}$, $t= (p_3 -p_1)^{2}$, $u =(p_4 - p_1)^{2}$.\\
+Start with the 4-point function on 4-dimension and up to 1-loop correction. The 1-loop contribution to s-channel is given by:
+\begin{align}
+\Sigma (p^{2}) &= \frac{(-i\lambda)^{2}}{2}\int\frac{d^{4}k}{(2\pi)^{4}}\frac{i}{k^{2}-m^{2}+i\epsilon}\frac{i}{(p-k)^{2}-m^{2} + i\epsilon}&
+\end{align}
+where $p = p_1 + p_2 = p_3 + p_4$ is the external momentum. Suppose that one analytically continues to a space of $d-1$ spatial and $1$ time dimensions, then the momentum in the integral can be written in;
+\begin{align}
+k^{\mu} = (k_0, k_1,...,k_{d-1})
+\end{align}
+But the external momenta are:
+\begin{align}
+p^{\mu} = (p_0,p_1,p_2,p_4,0,...,0)
+\end{align}
+in $d$-dimensional Minkowski space.\\
+With this note, one may have a $d$-dimensional integral:
+\begin{align}
+I = \int \frac{d^{d}k}{(2\pi)^d}\mu^{4-d} \frac{1}{k^{2}-m^{2}+i\epsilon} \frac{1}{(p-k)^{2}-m^{2} + i\epsilon}
+\end{align}
+Here, the scale $\mu$ is introduced to  compensate the change in the dimensions of fields and couplings. Notice that this integral is convergent for $d<4$. In oder to continue, it is useful to apply the Feynman parametrization:
+\begin{align}
+\frac{1}{AB} = \int_{0}^{1}dx \frac{1}{[xA+(1-x)B]^{2}}
+\end{align}
+Then with writing $\epsilon \equiv 4-d$, the integral would be:
+\begin{align}
+I &= \int \frac{d^{d}k}{(2\pi)^d} \int_{0}^{1}dx \mu^{\epsilon} \frac{1}{[x((p-k)^{2}-m^{2}) + (1-x)(k^{2}-m^{2})]^{2}} &\nonumber\\
+&= \int \frac{d^{d}k}{(2\pi)^d} \int_{0}^{1}dx \mu^{\epsilon} \frac{1}{[k^{2} -2xk\cdot p + xp^{2} -m^{2}]^{2}}& \nonumber \\
+&= \int \frac{d^{d}k}{(2\pi)^d} \int_{0}^{1}dx \mu^{\epsilon} \frac{1}{[(k-xp)^{2}+x(1-x)p^{2}-m^{2}]^{2}}& \nonumber \\
+&=  \int_{0}^{1}dx\int \frac{d^{d}l}{(2\pi)^d} \mu^{\epsilon} \frac{1}{[l^{2}-\Delta^{2} +i\epsilon]^{2}}& \text{($l^{\mu} \equiv k^{\mu}-xp^{\mu}$, $\Delta^{2} \equiv m^{2} - x(1-x)p^{2}$}) \nonumber   \\
+& = i\mu^{\epsilon} \int_{0}^{1} dx \int \frac{d^{d}l_E}{(2\pi)^d} \mu^{\epsilon} \frac{1}{[l_{E}^{2}-\Delta^{2} +i\epsilon]^{2}}&  \text{(Wick rotated)} \nonumber \\
+&=  \frac{1}{(2\pi)^{d}}i\mu^{\epsilon} \int_{0}^{1} dx \int d \Omega _d \int dl_E \frac{l_{E}^{d-1}}{[l_{E}^{2}-\Delta^{2} +i\epsilon]^{2}}&
+\end{align}
+But notice the Gaussian integral is:
+\begin{align}
+\int_{-\infty}^{\infty}dx e^{-x^{2}} = \sqrt{\pi}
+\end{align}
+Then,
+\begin{align}
+(\sqrt{\pi})^{d} &= (\int_{-\infty}^{\infty}dx e^{-x^{2}})^{d} = \int d^{d} x e^{-\Sigma _{i=1} ^{d} x_{i} ^{2}}& \nonumber \\ 
+& =\int d\Omega _{d} \int dx x^{d-1}e^{-x^{2}}& \nonumber \\ 
+& = \int d\Omega _{d} \int _{0}^{\infty} \frac{dx^{2}}{2} (x^2)^{d/2 - 1} e^{-x^2}& \nonumber  \\
+& = \int d \Omega _{d} \frac{1}{2} \Gamma (d/2) &
+\end{align}
+Thus, the integral being discussed is:
+\begin{align}
+I &= i \mu ^{\epsilon} \int_{0}^{1} dx \frac{2\pi ^{d/2}}{\Gamma(d/2)} \frac{1}{(2\pi)^d} \int _{0}^{\infty}dl_{E} \frac{l_{E}^{d-1}}{[l_{E}^{2} -\Delta ^{2} +i\epsilon]^{2}} & \nonumber \\
+&= \frac{i\mu^{\epsilon} \pi ^{d/2}}{(2\pi)^{d}\Gamma(d/2)} \int _{0}^{1} dx  \int _{0}^{\infty}dl_{E}^{2} \frac{(l_{E}^{2})^{d/2 -1}}{[l_{E}^{2} -\Delta ^{2} +i\epsilon]^{2}}&\nonumber \\
+&= \frac{i\mu^{\epsilon} \pi ^{d/2}}{(2\pi)^{d}\Gamma(d/2)} \int _{0}^{1} dx \frac{1}{[\Delta ^{2} -i\epsilon]^{2-d/2}} \frac{\Gamma(d/2)\Gamma(2-d/2)}{\Gamma(2)}& \nonumber \\
+&= \frac{i\mu^{\epsilon} \pi ^{d/2}}{(2\pi)^{d}} \Gamma(2-\frac{d}{2})\int_{0} ^{1} dx\frac{1}{(\Delta ^{2})^{2-d/2}}& \nonumber \\
+&= \frac{i\mu^{\epsilon} \pi ^{d/2}}{(2\pi)^{d}} \Gamma(\frac{\epsilon}{2})\int_{0} ^{1} dx\frac{1}{(\Delta ^{2})^{\epsilon/2}}&
+\end{align}
+On the third line, the relation between the beta and gamma functions was used:
+\begin{align}
+\int _{0}^{\infty} dt \frac{t^{m-1}}{(t^{2}+\Delta^{2})^{n}} = \frac{1}{(\Delta^{2})^{n-m}}\frac{\Gamma(m)\Gamma(n-m)}{\Gamma(n)}
+\end{align}
+Notice that $\Gamma(z)$ has poles at $z \in \mathbb{Z}_{\leq 0}$. Therefore, the integral I has poles for $d= 4,6,8,\cdots$. As mentioned above, our particular interest is in the limit $d \rightarrow 4$, that is, $\epsilon \rightarrow 0$. Then one may have expansions:
+\begin{align}
+\Gamma(\frac{\epsilon}{2}) &\simeq \frac{2}{\epsilon} - \gamma_{E} - \mathcal{O(\epsilon)} \\
+\frac{1}{(\Delta^{2})^{\epsilon /2}} &\simeq 1 -\frac{\epsilon}{2} \ln \Delta ^{2} + \mathcal{O}(\epsilon ^{2})\\
+\mu^{\epsilon} = (\mu^{2})^{\epsilon /2} &\simeq 1 + \frac{2}{\epsilon}\ln \mu^{2} + \cdots
+\end{align}
+where $\gamma_{E}$ is the Eüler-Mascheroni constant. And therefore,
+\begin{align}
+\mu^{\epsilon}\Gamma(\frac{\epsilon}{2})\frac{1}{(\Delta^{2})^{\epsilon /2}} \simeq \frac{2}{\epsilon} - \gamma_{E} - \ln \frac{\Delta ^{2}}{\mu^{2}} + \mathcal{O}(\epsilon)
+\end{align}
+This reads:
+\begin{align}
+I = \frac{i}{16\pi ^{2}} \int_{0}^{1} dx (\frac{2}{\epsilon} - \gamma_{E} - \ln \frac{m^{2} - x(1-x)p^{2}}{\mu^{2}} + \mathcal{O}(\epsilon))
+\end{align}
+The contribution is:
+\begin{align}
+\Sigma(p^{2}) &= -\frac{(-i\lambda)^{2}}{2}I \nonumber \\
+&= \frac{i\lambda^{2}}{32\pi ^{2}} \int_{0}^{1} dx (\frac{2}{\epsilon} - \gamma_{E} - \ln \frac{m^{2} - x(1-x)p^{2}}{\mu^{2}} + \mathcal{O}(\epsilon))
+\end{align}
+According to the renormalization condition:
+\begin{align}
+i\mathcal{A}(s= 4m^{2}, t=u=0) &= -i\lambda + \Sigma(4m^{2}) + 2\Sigma(0) - i\delta_{\lambda} \nonumber \\
+&= -i\lambda \nonumber \\
+\Leftrightarrow \Sigma(4m^{2}) + 2\Sigma(0) -i\delta_{\lambda} &= 0 \nonumber \\
+\Leftrightarrow \delta _{\lambda} &= \frac{\lambda^{2}}{32\pi^{2}} \int_{0}^{1} dx (\frac{6}{\epsilon} - 3\gamma_{E} -3 \ln \frac{m^{2}}{\mu^{2}} - \ln 4(1-x(1-x))) \nonumber \\
+&= \frac{3\lambda^{2}}{32\pi^{2}} \ln\frac{\zeta}{\mu^{2}} + \text{finite term}
+\end{align}
+Similarly for the case of the two-point function. Define $-iM^{2}(p^{2})$ as the sum of all one-particle irreducible insertions (1PI) into the propagator, the full propagator is:
+\begin{align}
+\Delta_{F} = \frac{i}{p^{2} - m^{2} -M^{2}(p^{2})}
+\end{align}
+The renormalized condition imposed on this propagator requires that $p^{2} = m^{2}$ should be the pole, and the residue is supposed to be 1. Expanding $M^{2}$ about $p^{2} = m^{2}$, one may have:
+\begin{align}
+\Delta_{F} = \frac{i}{p^{2} - m^{2} - (M^{2}(m^{2}) + (p^{2} - m^{2})\frac{d}{dp^{2}}M^{2}(m^{2}) + \cdots)}
+\end{align}
+Therefore, the renormalized condition can be reinterpreted into two conditions;
+\begin{align}
+M^{2}(p^{2})|_{p^{2} = m^{2}} = 0 \text{       and      } \frac{d}{dp^{2}}M^{2}(p^{2})|_{p^{2} = m^{2}} = 0
+\end{align}
+Then, explicitly, again, to 1-loop order:
+\begin{align}
+-iM^{2}(p^{2}) &= -\frac{i\lambda}{2}\int\frac{d^{4}k}{(2\pi)^{4}}\frac{i}{k^{2}-m^{2}}+ i(p^{2} \delta_{z} - \delta_{m})
+\end{align}
+With the same method, regularizing the integral:
+\begin{align}
+J&= -\frac{i\lambda}{2}\mu^{\epsilon}\int\frac{d^{d}k}{(2\pi)^{d}} \frac{i}{k^{2} - m^{2}} & \nonumber \\
+&= \frac{-i\lambda}{2}\frac{\mu^{\epsilon}}{(2\pi)^{d}} \int d\Omega_{d} \int_{0}^{\infty} dk_{E}\frac{k_{E}^{d-1}}{k_{E}^{2} + m^{2} -i\epsilon}& \nonumber \\
+& =  \frac{-i\lambda}{2}\frac{\mu^{\epsilon}}{(2\pi)^{d}} \frac{\pi^{d/2}}{\Gamma(d/2)} \int_{0}^{\infty} dk_{E}^{2} \frac{(k_{E}^{2})^{d/2 -1}}{k_{E}^{2} + m^{2} -i\epsilon} \nonumber \\
+& = \frac{-i\lambda}{2}\frac{\mu^{\epsilon}}{(2\pi)^{d}}\frac{\pi^{d/2}}{\Gamma(d/2)} \frac{1}{(m^{2})^{1-d/2}} \frac{\Gamma(\frac{d}{2})\Gamma(1-d/2)}{\Gamma(1)} \nonumber \\
+& = \frac{-i\lambda}{2}\frac{\mu^{\epsilon}}{(2\pi)^{d}}\pi^{d/2} \frac{1}{(m^{2})^{1-d/2}}\Gamma(1-d/2)
+\end{align}
+Using the property of Gamma function:
+\begin{align}
+z\Gamma(z) = \Gamma(z+1)
+\end{align}
+one may rewrite:
+\begin{align}
+(1-d/2)\Gamma(1-d/2) &= \Gamma(2-d/2) = \Gamma(\epsilon / 2) \nonumber \\
+\Leftrightarrow \Gamma(1-d/2) &= \frac{\Gamma(\epsilon/2)}{1-d/2}
+\end{align}
+Also, notice that:
+\begin{align}
+(m^{2})^{1-d/2} = (m^{2})^{-1}(m^{2})^{\epsilon/2}
+\end{align}
+Finally, the expansion around the limit $d \rightarrow 4$ is given as following:
+\begin{align}
+J &= \frac{-i\lambda}{2}\frac{\pi^{d/2}}{(2\pi)^{d}}\frac{m^{2}}{1-d/2}\frac{\mu^{\epsilon}}{(m^2)^{\epsilon/2}} \Gamma(\epsilon/2) \nonumber \\
+&\overrightarrow {\scalebox{0.7}{$d \to 4$}} \frac{i\lambda}{32\pi^{2}}m^{2} (\frac{2}{\epsilon} - \gamma_{E} - \ln \frac{m^{2}}{\mu^{2}} + \mathcal{O}(\epsilon)) \nonumber \\
+& = \frac{i\lambda}{32\pi^{2}}m^{2}\ln\frac{\zeta}{\mu^{2}} + \text{finite terms.}
+\end{align}
+Therefore, comparing with the renormalization condition redefined above, 
+\begin{align}
+\delta_{z} &= 0 \\
+\delta_{m^{2}} &= \frac{\lambda}{32\pi^{2}} m^{2}\ln\frac{\zeta}{\mu^{2}}
+\end{align}
+The computations of the renormalization group functions are carried with the definitions of the counter-terms $\delta_Z = Z-1$, $\delta_{\lambda} = \lambda_{0}Z^{2} - \lambda$, and $\delta_{m^{2}} = m_{0}^{2}Z - m^{2}$:
+\begin{align}
+\gamma&= \frac{1}{2}\frac{\mu}{Z}\frac{\partial Z}{\partial \mu} = \frac{1}{2}\mu \frac{\partial \delta_{Z}}{\partial \mu} = 0\\
+\beta & = \mu \frac{\partial \lambda}{\partial \mu} = \mu \frac{\partial}{\partial \mu}(\lambda_{0} + 2\delta_{Z}\lambda_{0} - \delta_{\lambda} + (\delta_{Z})^{2} \lambda_{0}) \nonumber \\
+&= -\mu \frac{\partial \delta_{\lambda}}{\partial \mu} = \frac{3\lambda ^{2}}{16\pi^{2}}\\
+\beta_{m}&= \frac{\mu}{m^{2}}\frac{\partial m^{2}}{\partial \mu} = -\frac{\mu}{m^{2}}\frac{\partial \delta_{m^{2}}}{\partial \mu} \nonumber \\
+&= \frac{\lambda}{16\pi^{2}}
+\end{align}
+Solving for $\lambda$ and $m^{2}$:
+\begin{align}
+\ln \frac{\mu}{\mu_{0}} & = \frac{16\pi^{2}}{3}(\frac{1}{\lambda_{0}} - \frac{1}{\lambda}) \nonumber \\
+\Leftrightarrow \lambda(\mu) &= \frac{\lambda_{0}}{1-\frac{3\lambda_{0}}{16\pi^{2}}\ln \frac{\mu}{\mu_{0}}}\\
+\ln \frac{m^{2}}{m_{0}^{2}} & = \frac{1}{3}\ln \frac{\lambda}{\lambda_{0}} \nonumber \\
+\Leftrightarrow m^{2}(\mu) &= [1-\frac{3\lambda_{0}}{16\pi^{2}} \ln \frac{\mu}{\mu_{0}}]^{-1/3} m_{0}^{2}
+\end{align}
+
+
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 2
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+
+\clearpage
+\appendix
+\section{Feynman Parametrization}
+It is known the Feynman parametrization in general form:
+\begin{align}
+\frac{1}{a_{1}a_{2}\cdots a_{n}} = \int _0^1 dx_{1} \cdots \int_0^1 dx_{n} \frac{\Gamma(n) \delta(1-x_{1}- \cdots -x_{n})}{(a_{1}x_{1} + \cdots + a_{n}x_{n})^{n}}
+\end{align}
+Let us prove it briefly.
+\begin{align}
+I&= \frac{1}{a_{1} \cdots a_{n}} \nonumber \\
+&= \int _{0}^{\infty} dt_{1} \cdots \int _{0}^{\infty} dt_{n} e^{-(a_{1}t_{1} + \cdots + a_{n} t_{n})} \nonumber \\
+&= \int _{0}^{\infty} dt \int _{0}^{\infty} dt_{1} \cdots \int _{0}^{\infty} dt_{n} \delta (t- t_{1} - \cdots -t_{n}) e^{-(a_{1}t_{1} + \cdots + a_{n} t_{n})} \nonumber 
+\end{align}
+Substituting $t_{i} = tx_{i}$,
+\begin{align}
+I &= \int _{0}^{\infty} dt \int _{0}^{\infty}dx_{1} \cdots \int _{0}^{\infty}dx_{n} t^{n}\delta(t(1-x_{1} - \cdots -t_{n})) e^{-t(a_{1}x_{1} + \cdots + a_{n}x_{n})} \nonumber \\
+&= \int _{0}^{\infty}dx_{1} \cdots \int _{0}^{\infty}dx_{n} \delta (1-x_{1} - \cdots -x_{n}) \int_{0} ^{\infty} dt t^{n-1}e^{-t(a_{1}x_{1} + \cdots + a_{n}x_{n})} \nonumber \\
+&= \int _{0}^{1} dx_{1} \cdots \int_{0}^{1} dx_{n}\frac{\Gamma(n) \delta (1-x_{1} - \cdots - x_{n})}{(a_{1}x_{1}+ \cdots + a_{n}x_{n})}
+\end{align}
+%\section{Second}
+
+\end{document}

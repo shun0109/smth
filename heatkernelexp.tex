@@ -1,0 +1,156 @@
+\documentclass[fleqn]{article}
+\setlength{\mathindent}{3pt}
+
+\input{structure.tex}
+
+\title{Heat Kernel Expansion}
+
+\begin{document}
+
+\maketitle
+\section{Method}
+\subsection{Effective Action}
+Let us start from the computation of the effective action in general. Given the classical Lagrangian, as we have seen it can be rewritten in terms of the renormalized field $\phi _r$:
+\begin{align}
+\mathcal{L} [\phi_r] = \mathcal{L}_r[\phi_r] + \Delta \mathcal{L}[\phi_r]
+\end{align}
+Then, introduce the external source $J$ and also split it as:
+\begin{align}
+J(x) = J_r(x) + \Delta J(x)
+\end{align}
+where, with the expansion $\phi_r(x) = \phi_{cl} (x) + \eta (x)$:
+\begin{align}
+&\left. \frac{\delta S_r [\phi _r]}{\delta \phi _r (x)} \right| _{\phi_r = \phi_{cl}} = -J_r(x) \\
+&\phi_{cl} = \left. \langle \phi(x) \rangle \right|_{J_r + \Delta J}
+\end{align}
+To proceed, one may consider the functional $Z[J]$ in the following form:
+\begin{align}
+Z[J] &= \int \mathcal{D}\phi \text{exp}\lbrace i\int d^{d}x (\mathcal{L}_{r} [\phi_r] + J(x) \phi_{r}(x)) \rbrace \nonumber \\
+&= \int \mathcal{D} \phi \text{exp} \lbrace i\int d^{d}x (\mathcal{L}_r[\phi_r]  + J_{r}(x)\phi_{r}(x) + \Delta \mathcal{L}[\phi_r] + \Delta J(x) \phi_{r}(x)) \rbrace
+\end{align}
+The action can be expanded around the background $\phi_{cl}$. The first two terms are:
+\begin{align}
+\int d^{d}x (\mathcal{L}_r[\phi_r]  + J_{r}(x)\phi_{r}(x))  = &\int d^{d}x (\mathcal{L}_r[\phi_{cl}]  + J_{r}(x)\phi_{cl}(x)) \nonumber \\
+&+ \int d^{d}x \eta(x) (\left.\frac{\delta S_{r}[\phi_{r}]}{\delta \phi_{r}(x)} \right|_{\phi_{r} = \phi_{cl}} + J_{r}(x) ) \nonumber  \\
+& + \frac{1}{2} \int d^{d}x d^{d}y \eta (x)\eta (y) \left. \frac{\delta^{2} S_{r}[\phi_{r}]}{\delta \phi_{r}(x) \delta \phi_{r} (y)} \right|_{\phi_{r} = \phi_{cl}} \nonumber \\
+&+ \cdots
+\end{align}
+The second term vanishes by the classical equation of motion. The last two terms of the action is also expanded:
+\begin{align}
+\int d^{d}x (\Delta \mathcal{L}_r[\phi_r]  + \Delta J_{r}(x)\phi_{r}(x))  = &\int d^{d}x (\Delta \mathcal{L}_r[\phi_{cl}]  + \Delta J_{r}(x)\phi_{cl}(x)) \nonumber \\
+&+ \int d^{d}x \eta(x) (\left.\frac{\delta \Delta S_{r}[\phi_{r}]}{\delta \phi_{r}(x)} \right|_{\phi_{r} = \phi_{cl}} + \Delta J_{r}(x) ) \nonumber  \\
+& + \frac{1}{2} \int d^{d}x d^{d}y \eta (x)\eta (y) \left. \frac{\delta^{2} \Delta S_{r}[\phi_{r}]}{\delta \phi_{r}(x) \delta \phi_{r} (y)} \right|_{\phi_{r} = \phi_{cl}} \nonumber \\
+&+ \cdots
+\end{align}
+The second term stands for a tadpole and must be canceled in such a way that $\langle \eta(x) \rangle _{J} = 0$, i.e, $\langle \phi _{r}\rangle _{J} = \phi _{cl}$. The other terms represent as the counter-terms for the self-interaction vertices. In total:
+\begin{align}
+Z[J] = &\text{exp} \lbrace i\int d^{d}x  (\mathcal{L}_r[\phi_{cl}]  + J_{r}(x)\phi_{cl}(x) +\Delta \mathcal{L}_r[\phi_{cl}]  + \Delta J_{r}(x)\phi_{cl}(x) )\rbrace   \nonumber \\
+& \int \mathcal{D} \eta \text{exp} \lbrace  i\tilde{S}[\eta] + i\Delta \tilde{S}[\eta]  \rbrace
+\end{align}
+where:
+\begin{align}
+\tilde{S}[\eta] & = \frac{1}{2} \int d^{d}x d^{d}y  \eta (x) (\frac{\delta ^{2} S_{r}}{\delta \phi_{r}^{2}}[\phi_{cl}](x,y))\eta(y) + \text{vertices.} \\
+\Delta \tilde{S}[\eta] & = \text{counter-terms}
+\end{align}
+Neglecting the interactions, the path integral over $\eta$ is of Gaussian form and can be integrated explicitly. The generating functionals $Z[J]$ takes the form $Z[J] = \text{exp} [iW[J]]$, and $W[J]$ can be written in:
+\begin{align}
+W[J] = &\int d^{d}x \lbrace \mathcal{L}_{r}[\phi _{cl}(x)] + J_{r}(x)\phi_{r}(x) + \Delta \mathcal{L}_{r}[\phi_{cl}] + \Delta J_{r}(x) \phi _{cl}(x) \rbrace \nonumber \\
+& + \frac{1}{2} Tr \ln \frac{\delta ^{2} S_{r}}{\delta \phi_{r}\delta \phi_{r}} [\phi_{cl}] - i(\text{connected diagram})
+\end{align}
+One may need to perform the Legendre transform  in order to compute the effective action $\Gamma[\phi_{cl}]$:
+\begin{align}
+\Gamma [\phi_{cl}] &= W[J] - \int d^{d}x J(x)\phi_{cl} (x) \\
+&= S_{r}[\phi _{cl}] +\frac{1}{2} Tr \ln \frac{\delta ^{2} S_{r}}{\delta \phi _{r} \delta _{r}}[\phi _{cl}] - i(\text{connected diagram}) + \Delta S[\phi_{cl}]
+\end{align}
+Our particular interest is in the 1-loop corrections:
+\begin{align}
+\Gamma^{\text{1-loop}} [\phi_{cl}]  = \frac{1}{2}Tr \ln \frac{\delta ^{2} S_{r}} {\delta \phi_{r} \delta \phi_{r}} + \Delta ^{1} S
+\end{align}
+So it is necessary to evaluate the trace in some way to know the 1-loop corrections to the effective action.
+
+\subsection{Heat Kernel Expansion}
+In order to compute the trace given above, introduce the heat kernel:
+\begin{align}
+K(t;x,y;D) = \langle x | \text{exp}(-tD) | \rangle
+\end{align}
+which should satisfy the heat conduction equation:
+\begin{align}
+(\partial _{t} + D_{x})K(t;x,y;D) = 0
+\end{align}
+with the initial condition:
+\begin{align}
+K(0;x,y;D) = \delta (x-y)
+\end{align}
+For instance, the kernel for $-\Delta$ is:
+\begin{align}
+K(t;,x,y;-\Delta) = (4\pi t)^{-d/2} \text{exp}(-\frac{(x-y)^{2}}{4t})
+\end{align}
+and for $D= D_{0} = -\Delta + m^{2}$:
+\begin{align}
+K(t;x,y;D_{0}) = (4\pi t)^{-d/2} \text{exp}(-\frac{(x-y)^{2}}{4t} - m^{2} t)
+\end{align}
+For a general D, $K(t;x,y;D_{0})$ still describes the leading singularity as $t \rightarrow 0$ as in the form:
+\begin{align}
+K(t;x,y;D) = K(t;,x,y;D_{0}) (1 + tb_{2}(x,y) + t^{2} b_{4}(x,y) + \cdots)
+\end{align}
+The heat kernel coefficients $b_{2k}(x,y)$ are regular n the limit $y \rightarrow x$.\\
+Then we need to compute the functional:
+\begin{align}
+\mathcal{W} = \frac{1}{2} \text{Tr} \ln D
+\end{align}
+But for each positive eigenvalue $\lambda$  of the operator D, one may have:
+\begin{align}
+\ln \lambda = - \int_{0}^{\infty} \frac{dt}{t} e^{-t\lambda}
+\end{align}
+Then,
+\begin{align}
+\mathcal{W} &=  -\frac{1}{2} \int_{0}^{\infty} \frac{dt}{t} \text{Tr} e^{-tD} \nonumber \\
+&= -\frac{1}{2} \int_{0}^{\infty} \frac{dt}{t} \int d^{d}x \sqrt{g} K(t;x,x;D)
+\end{align}
+
+\subsection{Generalization}
+With those coefficients, consider the functional $\mathcal{W}$, given the quadratic term of the Euclidean action:
+\begin{align}
+S^{(2)} = \frac{1}{2} \int d^{d}x \Phi^{T} (-\nabla \nabla + Y) \Phi \text{   ,   } \Phi  = \begin{pmatrix}
+\phi_{1} \\
+\phi_{2} \\
+\vdots \\
+\phi_{n}
+\end{pmatrix}
+\end{align}
+where $\nabla_{\rho} = \partial _{\rho} + X_{\rho}$, $X_{\rho}^{T} = -X_{\rho}$, and $Y^{T} = Y$.
+Then, one may have:
+\begin{align}
+\mathcal{W} & = -\frac{1}{2} \int _{0}^{\infty} \frac{dt}{t} e^{-tm^{2}}\frac{1}{(4\pi t)^{-d/2}} \int d^{d}x \text{Tr} (1 - tY + \frac{1}{2} t^{2} Y^{2} + \frac{1}{12} t^{2} X_{\mu \nu} X_{\mu \nu} + \cdots ) \nonumber \\
+&= \frac{1} {2} \frac{1}{(4\pi)^{d/2}}\int d^{d}x \lbrace m^{d-2} \Gamma(1-\frac{d}{2}) \text{Tr} (Y) - m^{d-4} \Gamma(2-\frac{d}{2}) \text{Tr}(\frac{1}{2}Y^{2} + \frac{1}{12} X_{\mu \nu} X_{\mu \nu}) + \cdots   \rbrace
+\end{align}
+
+
+\section{$\phi^{4}$ case}
+Let us apply this method to the $\phi^{4}$ theory, and reproduce its $\beta$ functions. In this case, we have $X = 0$ and $Y = m^{2} + \frac{\lambda}{2} \phi^{2}$. Then:
+\begin{align}
+\mathcal{W} = \frac{1}{2} \frac{1}{(4\pi)^{d/2}} \int d^{d}x \lbrace \frac{\Gamma(1-\frac{d}{2})}{(m^2)^{{1-\frac{d}{2}}}} (m^{2} + \frac{\lambda}{2}\phi ^{2} )- \frac{\Gamma(2-\frac{d}{2})}{(m^2)^{2-\frac{d}{2}}}\frac{1}{2}(m^{2} + \frac{\lambda}{2}\phi ^{2})^{2} + \cdots \rbrace
+\end{align}
+Then the counter-terms are:
+\begin{align}
+\delta _{m^2} &= -\frac{1}{2}\frac{\lambda}{(4\pi)^{d/2} }\frac{\Gamma (1-\frac{d}{2})}{(m^2)^{1-d/2}} \\
+\delta _{z} &= 0 \\
+\delta _{\lambda} &= \frac{3}{2} \frac{\lambda ^{2}}{(4\pi)^{d/2}} \frac{\Gamma(2-\frac{d}{2})}{(m^2)^{2-d/2}}
+\end{align}
+Consider the limit $d \rightarrow 4$ with $\epsilon \equiv d -4$, then:
+\begin{align}
+\delta _{m^{2}} & = -\frac{1}{2}\mu ^{\epsilon} \frac{\lambda}{(4\pi)^{2-\epsilon/2}} \frac{\Gamma(\frac{\epsilon}{2})}{-1+\frac{\epsilon}{2}}\frac{1}{(m^2)^{-1+\epsilon/2}} \nonumber \\
+&\overrightarrow{\scalebox{0.7}{$\epsilon \to 0$}} \frac{\lambda}{32\pi ^{2}} m^{2} (\frac{2}{\epsilon} - \gamma _{E} -\ln\frac{m^{2}}{\mu^{2}} + \mathcal{O}(\epsilon)) \nonumber \\
+& = \frac{\lambda}{32\pi ^{2}}m^{2} \ln \frac{\zeta}{\mu ^{2}} \\
+\delta _{\lambda} & = \frac{3}{2} \frac{\mu ^{\epsilon} \lambda ^{2} }{(4\pi)^{2-\epsilon/2}} \frac{\Gamma(\frac{\epsilon}{2})}{(m^2)^{\epsilon /2}} \nonumber \\
+&\overrightarrow{\scalebox{0.7}{$d \to 4$}} \frac{3\lambda^{2}}{32\pi^{2}} \ln \frac{\zeta}{\mu^{2} }
+\end{align}
+Therefore, $\beta$ functions are:
+\begin{align}
+\gamma &= 0 \\
+\beta & = \frac{3\lambda^{2}}{16\pi ^{2}} \\
+\beta_{m^{2}} &= \frac{\lambda}{16\pi^2}
+\end{align}
+
+
+\end{document}

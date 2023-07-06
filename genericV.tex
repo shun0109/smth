@@ -1,0 +1,51 @@
+\documentclass[fleqn]{article}
+\setlength{\mathindent}{3pt}
+
+\input{structure.tex}
+
+\title{Generic Potential}
+
+\begin{document}
+\maketitle
+Let us work on the case for a generic potential $V(\phi)$ for scalars $\phi$. For the simplicity, start with the single scalar action:
+\begin{align}
+S = \int d^{d}x \lbrace \frac{1}{2}\partial _{\mu} \phi \partial ^{\mu} \phi + V(\phi) \rbrace
+\end{align}
+Then, the quadratic term is:
+\begin{align}
+S^{(2)} = \frac{1}{2}  \int d^{d} x \eta(-\square + V''(\phi)) \eta
+\end{align}
+So one may obtain:
+\begin{align}
+\frac{\delta ^{2} S}{\delta \phi \delta \phi} &= -\square + V''(\phi)  := D
+\end{align}
+Therefore:
+\begin{align}
+\mathcal{W} &= \frac{1}{2} \text{Tr} \ln D \nonumber \\
+& = -\frac{1}{2} \int _{0}^{\infty} \frac{dt}{t} \text{Tr} e^{-tD} 
+\end{align}
+But, now one can use the expansion for the trace of the heat kernel:
+\begin{align}
+\text{Tr} e^{-tD} &=  \sum_{k \ge 0}t^{(k-d)/2} a_{k}
+\end{align}
+where $a_{k}$ are heat kernel coefficients which are, for instance, given in Vassilevich. \\
+Thus, introducing a cut-off at $ t = \Lambda^{-2}$:
+\begin{align}
+\mathcal{W} & = -\frac{1}{2}\int _{\Lambda^{-2}}^{\infty} dt \sum t^{\frac{k-d}{2} -1} a_{k}  \nonumber \\
+&=-\frac{1}{2} \int_{\Lambda ^{-2}}^{\infty} dt \lbrace t^{-d/2-1} a_{0} + t^{-d/2} a_{2} + t^{-d/2 + 1} a_{4}  \cdots \rbrace
+\end{align}
+Notice that only finitely many terms involve the divergent one would need to care, i.e. only the coefficients with $k \leq d$ are necessary. Therefore, defining $\tau \equiv \ln \frac{\Lambda}{\Lambda_{0}}$:
+\begin{align}
+\partial _{\tau} V_{\Lambda} = -\frac{1}{2} \partial _{\tau} \lbrace \int _{\Lambda ^{-2}}^{\infty} dt \sum_{k \leq d} t^{\frac{k-d}{2} -1} a_{k} \rbrace
+\end{align}
+From this "beta functional", each beta-function corresponding to each coupling can be extracted. \\
+For a theory with multiple scalars $\phi ^{i}$, this could be generalized. In this case, the second functional derivative is in the form:
+\begin{align}
+\frac{\delta S}{\delta \phi ^{i} \delta \phi ^{j}} = -\square \delta ^{ij} + U(\phi)
+\end{align}
+where $U(\phi)$ includes the additional terms in its potential which involve $i \neq j$. \\
+Thus, specifying terms involving the divergence with heat kernel coefficients with same procedure, eventually one may obtain a "beta-functional" depending on scalars from which all beta-functions of all couplings are extracted.
+Ultimately, once the form of the potential of the theory is determined, plugging them into the heat kernel coefficients, all beta-functions can be specified.
+
+
+\end{document}

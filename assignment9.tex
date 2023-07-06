@@ -1,0 +1,111 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lachaise Assignment
+% LaTeX Template
+% Version 1.0 (26/6/2018)
+%
+% This template originates from:
+% http://www.LaTeXTemplates.com
+%
+% Authors:
+% Marion Lachaise & François Févotte
+% Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\input{structure.tex} % Include the file specifying the document structure and custom commands
+
+%----------------------------------------------------------------------------------------
+%	ASSIGNMENT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{PY421: Assignment \#9} % Title of the assignment
+
+\author{Shun Miyamoto\\ \texttt{smiyamot@bu.edu}} % Author name and email address
+
+\date{Boston University --- \today} % University, school and/or department name(s) and a date
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+\section{Problem 3} % Numbered section
+\begin{eqnarray}
+Z &=& \sum e^{-\beta E} \\
+<E> &=& \frac{\sum E e^{-\beta E}}{\sum e^{-\beta E}} \nonumber \\
+&=& -\frac{1}{Z} \frac{\partial Z}{\partial \beta} \\
+&=& -\frac{\partial}{\partial \beta} \ln Z \\
+<E^2> &=& \frac{\sum E^2 e^{-\beta E}}{\sum e^{-\beta E}} \nonumber \\
+&=& \frac{1}{Z} \frac{\partial ^2 Z}{\partial \beta ^2} \nonumber \\
+&=& \frac{\partial ^2}{\partial \beta ^2} \ln z + (\frac{\partial}{\partial \beta} \ln Z) ^2
+\end{eqnarray}
+Here, $<E>$ and $<E^2>$ are for the total number of bonds. Thus, the mean square fluctuation of energy for the total number of bonds is,
+\begin{eqnarray}
+C &=& <(E-<E>)^2> \nonumber \\
+&=&<E^2> - <E>^2 \nonumber \\
+&=& \frac{\partial ^2}{\partial \beta ^2} \ln Z \nonumber \\
+&=& \frac{\partial}{\partial \beta}(\frac{\partial}{\partial \beta} \ln Z) \nonumber \\
+&=&\frac{\partial}{\partial \beta} (\frac{1}{Z}\frac{\partial Z}{\partial \beta}) \nonumber \\
+&=& -\frac{\partial}{\partial \beta} <E>
+\end{eqnarray}
+Hence, in our context, it is proved that,
+\begin{equation}
+C = 2N^2(<E^2> - <E>^2) = -\frac{\partial}{\partial \beta} <E>
+\end{equation}
+
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 2
+%----------------------------------------------------------------------------------------
+
+\section{Problem 4}
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[keepaspectratio, scale=1.0]
+		{graph10.pdf}
+	\caption{$<E>$ versus $\beta$ for 4 simulations}
+	\label{Fig.1}
+\end{figure} 
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[keepaspectratio, scale=1.0]
+		{graph11.pdf}
+	\caption{Fluctuation versus $\beta$ for 4 simulations}
+	\label{Fig.2}
+\end{figure}
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[keepaspectratio, scale=1.0]
+		{graph12.pdf}
+	\caption{Correlation $<m>$ versus $\beta$ for 4 simulations}
+	\label{Fig.3}
+\end{figure}
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[keepaspectratio, scale=1.0]
+		{graph13.pdf}
+	\caption{Comparison of values of fluctuation, ones are from simulations, and the others are from approxiamtion}
+	\label{Fig.4}
+\end{figure}
+%----------------------------------------------------------------------------------------
+
+\end{document}

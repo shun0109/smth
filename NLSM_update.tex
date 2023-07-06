@@ -1,0 +1,94 @@
+\documentclass[fleqn]{article}
+\setlength{\mathindent}{3pt}
+
+\input{structure.tex}
+
+
+\begin{document}
+
+Start with the action of the non-linear sigma model (NLSM) on the target space $\mathcal{M}$ defined as:
+\begin{align}
+S[X] = \frac{1}{2}\int _{\mathcal{M}} d^{d}x \sqrt{g} G_{AB}(X) \partial _{\mu}X^{A} \partial^{\mu} X^{B}
+\end{align}
+As before, one may need to obtain the 1-loop effective action for the observation of the renormalization equation for the theory. To do so, consider writing the field $X(x)$ in terms of a background $\bar{X}(x)$ and the corresponding quantum fluctuation $\xi(x)$. Assume that there is a smooth map $X_{s}(x)$ such that $X_{0} = \bar X(x)$, $X_{1} = X(x)$ with $\dot{X}_{0}  = \xi$. Consider a curve $X_{s}$ in $\mathcal{M}$ which represents the geodesic between initial and final points, i.e. $X_{0}$ and $X_{1}$, 
+\begin{align}
+\ddot{X}_{s}^{A} (x) + \Gamma _{BC}^{A}\dot{X}_{s}^{B}(x) \dot{X}_{s}^{C}(x) = 0
+\end{align}
+here $\Gamma_{BC}^{A}$ denotes the Christoffel symbol corresponding to the target space metirc $G_{AB}$. Then the expansion of the action around the background $\bar{X}$ is:
+\begin{align}
+S[X] &= \left. \sum _{n=0} ^{\infty} \frac{1}{n!} \frac{d^{n}}{ds ^{n}} S[X_{s}] \right| _{s=0} \nonumber \\
+& = \left. \sum _{n=0}^{\infty} \frac{1}{n!} (\nabla _{s})^{n} S[X_{s}] \right| _{s=0}
+\end{align} 
+where $\nabla _{s}$ is the covariant derivative along the curve $X_{s}^{A}$. Using the formulae:
+\begin{align}
+\nabla _{s} \partial _{\mu} X^{i} = \partial _{\mu} \frac{dX^{i}}{ds} + \partial _{\mu} X^{k} \Gamma _{kj}^{i} \frac{dX^{j}}{ds} = \nabla _{\mu} \xi ^{i} \text{ , } \nabla_{s} G_{AB} = 0 \nonumber \\
+\nabla_{s} \frac{dX^{i}}{ds} = 0 \text{  , } [\nabla _{s}, \nabla _{\mu}] Z^{k} = \frac{dX^{i}}{ds} \partial _{\mu} X^{j} R_{lij}^{k} Z^{l}
+\end{align}
+where $Z^{i}$ is an arbitrary vector, one finds:
+\begin{align}
+S[X] = &\frac{1}{2} \sqrt{g} \int _{\mathcal{M}} d^{d}x G_{AB}(\bar{X)} \partial _{\mu} \bar{X}^{A}\partial ^{\mu} \bar{X}^{B} + \sqrt{g} \int _{\mathcal{M}} d^{d}x G_{AB} \partial _{\mu} \xi ^{A} \partial ^{\mu} \bar{X}^{B} + \nonumber \\
+& + \frac{1}{2} \sqrt{g} \int _{\mathcal{M}} d^{d} x \lbrace G_{AB} \nabla _{\mu} \xi ^{A} \nabla ^{\mu} \xi^{B}  + R_{ACDB} \xi ^{C} \xi^{D} \partial _{\mu} \bar{X} ^{A} \partial ^{\mu} \bar{X} ^{B} \rbrace + \cdots 
+\end{align}
+From the quadratic part:
+\begin{align}
+D \equiv -G_{AB} \square + R_{ACDB} \partial _{\mu} \bar{X}^{C} \partial ^{\mu} \bar{X}^{D}
+\end{align}
+So our interest is to compute:
+\begin{align}
+\Gamma_{\text{1-loop}} &= \frac{1}{2} \text{Tr} \ln D  \nonumber \\
+& = -\frac{1}{2} \int _{0} ^{\infty} \frac{dt}{t} \text{Tr} e^{-tD}
+\end{align}
+As before, it can be expanded with the heat kernel coefficients $a_{k}$ such that:
+\begin{align}
+\Gamma _{\text{1-loop}} = -\frac{1}{2} \int \frac{dt}{t} \sum _{k\geq 0} t^{\frac{k-d}{2}}a_{k}(f,D)
+\end{align}
+where the first few terms are explicitly given in literatures. Introducing the UV and IR cutoff $\Lambda$ and $\mu$ respectively on the proper time integral:
+\begin{align}
+\Gamma _{\text{1-loop}} = -\frac{1}{2}\int _{\Lambda ^{-2}} ^{\mu ^{-2}} dt \sum t^{\frac{k-d}{2} -1} a_{k}(f,D)
+\end{align}
+Again, there are finitely many terms which involve its divergence. For instance, for the case of $d=2$:
+\begin{align}
+\Gamma _{\text{1-loop}}^{div} &= -\frac{1}{2} \int _{\Lambda ^{-2}} ^{\mu ^{-2}} dt\lbrace t^{-2} a_{0} (f,D) + t^{-1} a_{2} (f,D) \rbrace \nonumber \\
+&= -\frac{1}{2} \lbrace (\Lambda ^{2} - \mu ^{2} )a_{0} + \ln \frac{\Lambda ^{2}}{\mu ^{2}} a_{2} \rbrace \nonumber \\
+&= -\frac{1}{2} \lbrace (\Lambda ^{2} - \mu ^{2})(4\pi)^{-1} \int \sqrt{g} + \ln \frac{\Lambda ^{2}}{\mu ^{2}} (4\pi)^{-1} \int \sqrt{g} R_{DC} \partial _{\alpha} X^{C} \partial ^{\alpha} X^{D} \rbrace 
+\end{align}
+Taking a derivative with respect to $\mu$:
+\begin{align}
+\beta _{AB} &= \mu \frac{\partial}{\partial \mu} G_{AB,\mu} \nonumber \\
+&=\frac{1}{2\pi} R_{AB} 
+\end{align}
+Adding a generic potential term to the action, it becomes:
+\begin{align}
+S[X] =\frac{1}{2} \int _{\mathcal{M}} d^{d}x \sqrt{g} G_{AB}(X) \partial _{\mu}X^{A} \partial^{\mu} X^{B} + V(X)
+\end{align}
+Similarly to the previous computations:
+\begin{align}
+D' = -G_{AB} \square + R_{ACDB} \partial _{\mu} \bar{X}^{C} \partial ^{\mu} \bar{X}^{D} + V^{(2)}
+\end{align}
+where $V^{(2)}$ is a Hessian matrix. Thus, in addition to the flow of the metric, there are flows of the couplings in the potential, which can be denoted as in this case:
+\begin{align}
+\mu \frac{\partial}{\partial \mu} V_{\mu} =\frac{1}{4\pi} \text{Tr}V^{(2)}
+\end{align}
+and each beta function can be deduced. \\
+For $4d$ case, the terms with coefficients $a_{4}$ must be included. Specifically:
+\begin{align}
+\Gamma_{\text{1-loop}}^{\text{div}} &= -\frac{1}{2} \int _{\Lambda ^{-2}} ^{\mu^{-2}} dt \lbrace t^{-3} a_{0} + t^{-2} a_{2} + t^{-1} a_{4} \rbrace  \nonumber \\
+&= -\frac{1}{2} \lbrace \frac{1}{2}(\Lambda ^{4} - \mu ^{4}) a_{0}+ (\Lambda ^{2} - \mu ^{2}) a_{2} + \ln \frac{\Lambda ^{2}} {\mu ^{2}} a_{4} \rbrace  \nonumber \\
+&= -\frac{1}{2} \lbrace \frac{1}{2} (\Lambda ^{4} - \mu ^{4}) (4\pi)^{-2} \int \sqrt{g}+ (\Lambda ^{2} - \mu ^{2} ) (4\pi) ^{-2} \int \sqrt{g} (R_{DC} \partial _{\alpha} X^{C} \partial ^{\alpha} X^{D} + \text{Tr}V^{(2)}) + \nonumber \\
+&+ \ln \frac{\Lambda ^{2}}{\mu^{2}} (4\pi)^{-2} \int \sqrt{g} \text{Tr} (\frac{1}{2} P^{2} + \frac{1}{6} \square Q + \frac{1}{6}RO) \rbrace 
+\end{align}
+where $P$ and $Q$ represent the last two terms of the operator $D'$ such that $P^{2}$ and $\square Q$ include only relevant terms such as $\partial _{\alpha} X^{A} \partial ^{\alpha} X^{B}$, and $O$ denotes exactly those two terms in $D'$.\\
+ From this, taking the $\mu$ derivative, 
+\begin{align}
+\mu \frac{\partial}{\partial \mu} \Gamma _{\text{1-loop}} ^{\text{div}} & = \frac{1}{(4\pi)^{2}} \sqrt{g} \lbrace \mu ^{4} \int d^{4}x+  \mu ^{2} \int d^{4} x (R_{DC} \partial _{\alpha} X^{C} \partial ^{\alpha} X^{D} + \text{Tr}V^{(2)}) + \nonumber \\
+& + \int d^{4}x [\text {Tr} (\frac{1}{2} P^{2} + \frac{1}{6} \square Q) + \frac{1}{6} R(R_{EF} \partial _{\alpha} X^{E} \partial ^{\alpha}X^{F} + \text{Tr} V^{(2)})] \rbrace  \\
+& = \int d^{4} x \sqrt{g} \lbrace \frac{1}{2} \mu \frac{\partial G_{AB,\mu}}{\partial \mu} \partial _{\alpha} X^{A} \partial ^{\alpha} X^{B} + \mu \frac{\partial V_{\mu}}{\partial \mu} \rbrace 
+\end{align}
+
+----------correction------------ \\
+In the equations above, $\square Q$ does not have contributions because it is a total derivative and thus a boundary term. Also, we can neglect Tr$RO$ for 1-loop calculation of RG flow since it represents a non-minimal coupling between the gravity and the scalar. Eventually, only what we need is the term Tr$P^{2}$. 
+\begin{align}
+\frac{1}{2} \mu \frac{\partial G_{AB,\mu}}{\partial \mu} + \mu \frac{\partial \tilde{V}_{\mu}} {\partial \mu} =\frac{1}{(4\pi)^{2}} \text{Tr} (\frac{1}{2} \tilde{P}^{2}) + \mu^{2}(R_{AB} + \text{Tr} \tilde{V}^{(2)})
+ \end{align}
+here tilde denotes the coefficients of only the relevant terms.
+\end{document}

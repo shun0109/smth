@@ -1,0 +1,152 @@
+\documentclass[fleqn]{article}
+\setlength{\mathindent}{3pt}
+\usepackage{bbold}
+\usepackage[overload]{empheq}
+\input{structure.tex}
+
+
+\begin{document}
+
+Let us start from some corrections for indices and signs. We are dealing with the operators of Laplace type represented as:
+\begin{align}
+D = -(G_{ab} \square + E)
+\end{align}
+Now since our interest is in the (Euclidean) action with the potential in the form of quadratic homogeneous function, this operator can be written as:
+\begin{align}
+D &= -G_{ab}\square + R_{acdb} \partial _{\mu} \varphi ^{c} \partial ^{\mu} \varphi ^{d} + H_{ab} \nonumber \\
+&= -(G_{ab} + R_{acbd}\partial _{\mu} \varphi ^{c} \partial ^{\mu} \varphi ^{d} - H_{ab} )
+\end{align}
+here $H_{ab}$ stands for the Hessian matrix of the potential. Thus we have:
+\begin{align}
+E = R_{acbd}\partial _{\mu} \varphi ^{c} \partial ^{\mu} \varphi ^{d} - H_{ab}
+\end{align}
+By the Heat kernel expansion, relevant divergence of 1-loop effective action is:
+\begin{align}
+\Gamma _{\text{1-loop}} ^{\text{div}} &= -\frac{1}{2} \frac{1}{(4\pi)^{2}}\int d^{4}x \sqrt{g} \lbrace (\Lambda ^{2} - \mu ^{2} )(R_{cd}\partial _{\mu} \varphi ^{c} \partial ^{\mu} \varphi ^{d} - \text{Tr}H) + \ln \frac{\Lambda ^{2}}{\mu ^{2}}(\frac{1}{2} \text{Tr} H^{2} -
+\text{Tr}H_{ab} R_{acbd} \partial _{\mu} \varphi ^{c} \partial ^{\mu} \varphi ^{d})  \rbrace 
+\end{align}
+from which the RG equations lead:
+\begin{align}
+& \mu \frac{\partial}{\partial \mu} G_{ab} = \frac{1}{8\pi ^{2}} (\mu ^{2} R_{ab} -\text{Tr}H_{cd} R_{acbd}) \\
+& \mu \frac{\partial}{\partial \mu} V = \frac{1}{16\pi ^{2}} (-\mu ^{2} \text{Tr}H +\frac{1}{2} \text{Tr} H^{2} ) 
+\end{align}
+here indices are modified implicitly. \\
+Then, consider how geodesics would be modified as the metric varies with the scale $\mu$. Assume $\mu = \Lambda (1-\epsilon)$ with $\epsilon \ll 1$, that is, the variation of the scale is so small that the curvature on the right hand side of eq.(5) can be thought of as the one corresponding to the initial metric at scale $\Lambda$. Integrating the RG equation:
+\begin{align}
+&G_{ab}^{\mu} - G_{ab} ^{\Lambda} = \frac{1}{8\pi ^{2}} \lbrace \frac{1}{2}  (\mu ^{2} - \Lambda ^{2}) R_{ab} - \ln\frac{\mu}{\Lambda}  \text{Tr}H_{cd} R_{acbd} \rbrace \\
+\Leftrightarrow & G_{ab} ^{\mu} = G_{ab}^{\Lambda} + \frac{1}{8\pi ^{2}} \lbrace \frac{1}{2}  (\mu ^{2} - \Lambda ^{2}) R_{ab} - \ln\frac{\mu}{\Lambda}  \text{Tr}H_{cd} R_{acbd} \rbrace \nonumber \\
+& \approx G_{ab} ^{\Lambda} + \frac{\epsilon}{8\pi ^{2}} \lbrace \text{Tr} H_{cd} R_{acbd} - \Lambda ^{2} R_{ab} \rbrace
+\end{align}
+to the $1$st order of $\epsilon$. First of all, consider the potential in the form $V = \frac{1}{2}\sum _{i,j} M_{ij} \varphi _{i} \varphi _{j} $ where $M_{ij} = M \delta _{ij}$. Then, the flow equation is given:
+\begin{align}
+G_{ab} ^{\mu} = \frac{1}{\varphi_{2} ^{2}} (1+ \frac{\epsilon} {8\pi ^{2}} (\Lambda^{2} - M))\mathbb{1} := \frac{\kappa}{\varphi _{2} ^{2}} \mathbb{1}
+\end{align}
+This leads the geodesics equations:
+\begin{align}
+\ddot \varphi _{1} ^{2} -\frac{2\kappa}{\varphi _{2}} \dot \varphi_{1} \dot \varphi _{2} = 0 \\
+\ddot \varphi_{2} ^{2} +\frac{\kappa}{\varphi _{2}} (\dot \varphi _{1} ^{2} - \dot \varphi _{2} ^{2}) = 0
+\end{align}
+However, it can easily be confirmed that the vertical geodesics on $(\varphi _{1} , \varphi _{2})$ plane for the initial metric remains vertical as metric varies. Thus, let us think about more generic potential such as:
+\begin{align}
+M = 
+\begin{bmatrix}
+M_{1} & m \\
+m & M_{2}
+\end{bmatrix}
+\end{align}
+then the flow could be written in:
+\begin{align}
+G_{ab} ^{\mu} &= G_{ab} ^{\Lambda} + \frac{\epsilon} {8\pi ^{2} \varphi _{2} ^{2}}(
+\begin{bmatrix}
+\Lambda ^{2} - M_{2} & m \\
+m & \Lambda ^{2} -M_{1}
+\end{bmatrix}
+)
+\end{align}
+Here, and from now on, unless explicitly stated, only up to first order is taken into account. Also, the metric at the scale $\mu$ is just written as $G_{ab}$. Then computing:
+\begin{align}
+G^{ab} &= \varphi _{2} ^{2} 
+\begin{bmatrix}
+1 + \frac{\epsilon}{8\pi ^{2}} (M_{2} - \Lambda ^{2} ) & -\frac{\epsilon} {8\pi ^{2}}m \\
+- \frac{\epsilon}{8\pi ^{2} }m & 1 + \frac{\epsilon}{8\pi ^{2}}(M_{1} - \Lambda ^{2} )
+\end{bmatrix}  \\
+\Gamma _{11} ^{1} &= -\frac{\epsilon}{8\pi ^{2} \varphi _{2}} m \\
+\Gamma _{12} ^{1} &= \Gamma _{21} ^{1} = -\frac{1}{\varphi _{2}} \\
+\Gamma _{22}^{1} &= -\frac{\epsilon} {8\pi ^{2} \varphi _{2}} m \\
+\Gamma _{11} ^{2} &= \frac{1} {\varphi _{2}} [1 + \frac{\epsilon} {8\pi ^{2} } (M_1 - M_2)] \\
+\Gamma _{12} ^{2} &= \Gamma _{21} ^{2} = \frac{\epsilon}{8\pi ^{2} \varphi _{2}}m \\
+\Gamma _{22} ^{2} &= -\frac{1} {\varphi _{2}}
+\end{align}
+from which the geodesics equations are obtained:
+\begin{align}[left=\empheqlbrace]
+&\ddot \varphi _{1} - \frac{2} {\varphi _{2}} = \frac{\epsilon}{8\pi ^{2} \varphi_{2}}m (\dot \varphi _{1} ^{2} + \dot \varphi_{2} ^{2}) \\
+&\ddot \varphi _{2} + \frac{1}{\varphi _{2}} (\dot \varphi _{1} ^{2} - \dot \varphi _{2} ^{2}) = \frac{\epsilon} {8\pi ^{2} \varphi _{2}} \lbrace (M_{2} - M_{1}) \dot \varphi _{1} ^{2} -2m\dot \varphi _{1} \dot \varphi _{2}\rbrace 
+\end{align}
+By multiplying $\varphi_{2}$ to both equation, one may arrive:
+\begin{align}[left=\empheqlbrace]
+& \varphi_{2} \ddot \varphi _{1} - 2\dot \varphi _{1} \dot \varphi_{2} = \frac{\epsilon } {8\pi ^{2} } m(\dot \varphi _{1} ^{2} + \dot \varphi _{2} ^{2} ) \\
+& \varphi _{2} \ddot \varphi _{2} + \dot \varphi _{1} ^{2} - \dot \varphi _{2} ^{2} = \frac{\epsilon }{8\pi ^{2}} \lbrace (M_{2} - M_{1} ) \dot \varphi _{1} ^{2} - 2m \dot \varphi _{1} \dot \varphi _{2} \rbrace 
+\end{align}
+Now consider how the vertical geodesics corresponding to the initial metric change. Such lines are given by $\varphi _{2}= e^{\pm(s-s_{0})}$ with $s_{0}$ stands for some real constant. The choice of sign determines whether the lines traverse up- or downward. Focusing on the upward case here, notice that from the first equation that $\dot \varphi _{1} = 0$ is no longer the solution of the geodesic equations. From the second equation:
+\begin{align}
+&\dot \varphi _{1} ^{2} = \frac{\epsilon}{8\pi ^{2}}[(M_{2} - M_{1})\dot \varphi _{1} -2m \varphi _{2}] \dot \varphi _{1}  \nonumber \\
+\Leftrightarrow & \dot \varphi_{1} = -(1+ \frac{\epsilon} {8\pi ^{2} }(M_{1} - M_{2}))^{-1} \frac{\epsilon} {4\pi ^{2}}m\varphi_{2} \nonumber \\
+&\approx -(1- \frac{\epsilon}{8\pi ^{2}} (M_{1} -M_{2}))\frac{\epsilon}{4\pi ^{2}}m\varphi _{2} \nonumber \\
+&\approx -\frac{\epsilon}{4\pi ^{2}}m \varphi _{2}
+\end{align}
+Integrating both side:
+\begin{align}
+\varphi _{1}^{\mu} = \varphi _{1} ^{\Lambda} - \frac{\epsilon}{4\pi ^{2}}m (e^{s-s_{0}} -1) 
+\end{align}
+Therefore, up to first order, the vertical geodesics change their form as the metric flows if $m \neq 0$. Also it is easy to see from eq.(25) that the relation between $M_{1}$ and $M_{2}$ matters if second order is taken into account. \\
+\indent Next, consider adding a term to the potential. Given:
+\begin{align}
+V = \frac{1}{2} \varphi ^{\text{T}} M \varphi + \frac{\lambda}{4} (\varphi ^{\text{T}}\varphi )^{2} 
+\end{align}
+where $\varphi = \begin{bmatrix}
+\varphi _{1} \\
+\varphi _{2}
+\end{bmatrix}$. Then the Hessian matrix is:
+\begin{align}
+H = \begin{bmatrix}
+M_{1} & m \\
+m & M_{2} 
+\end{bmatrix} + \lambda \begin{bmatrix}
+3\varphi _{1} ^{2} & 2\varphi _{1} \varphi _{2} \\
+2\varphi_{1} \varphi _{2} & 3\varphi _{2} ^{2} 
+\end{bmatrix}
+\end{align}
+Since there are interaction terms, potential also would flow with the scale. From eq.(6) it is necessary to compute the trace of $H$ and $H^{2}$. Focusing on the flow of mass, they are given:
+\begin{align}
+&\text{Tr}H = 3\lambda (\varphi _{1} ^{2} + \varphi_{2} ^{2}) \\
+&\text{Tr} H^{2} = 6\lambda M_{1} \varphi _{1} ^{2} + 6\lambda M_{2} \varphi _{2} ^{2} + 8\lambda m \varphi _{1} \varphi _{2} 
+\end{align}
+Then the flow equations for each mass term are:
+\begin{align}
+&\mu\frac{\partial }{\partial \mu} M_{i} = \frac{1}{16\pi ^{2}} (-\mu ^{2} 3\lambda + 3\lambda M_{i}) \\
+& \mu \frac{\partial}{\partial \mu} m = \frac{1}{16\pi ^{2}} 4\lambda m = \frac{\lambda}{4\pi ^{2}}m
+\end{align}
+where $i =1,2$. Solving eq.(31) assuming $a= \frac{3\lambda}{16\pi ^{2}}$:
+\begin{align}
+& a  \mu ^{2} + \mu \frac{\partial M}{\partial \mu} - aM = 0  \nonumber \\
+\Leftrightarrow & \frac{\partial M}{\partial \mu} - a\frac{M}{\mu} = -a\mu
+\end{align}
+Divide both side by $\mu ^{a}$:
+\begin{align}
+&\mu ^{-a} \frac{\partial M}{\partial \mu} -(a\mu ^{-a-1})M = -a\mu ^{-a+1} \nonumber \\
+\Leftrightarrow & \frac{\partial}{\partial \mu} (\mu ^{-a} M)  =a \mu ^{-a+1} \nonumber \\
+\Leftrightarrow & \mu ^{-2a} M =\Lambda ^{-a} M^{0} + \frac{a}{a-2)}(\mu ^{-a+2} - \Lambda ^{-a+2}) \nonumber \\
+\therefore &M =(\frac{\mu}{\Lambda})^{a} M^{0} + \frac{a}{a-2)} (\mu ^{2} - \Lambda ^{2} (\frac{\mu}{\Lambda })^{a})
+\end{align}
+Also for $m$:
+\begin{align}
+m = m^{0} (\frac{\mu}{\Lambda})^{\frac{\lambda}{4\pi ^{2} }}
+\end{align}
+Notice if $\lambda =0$, flows are simply zero. For small variation of the scale $\mu = \Lambda (1-\epsilon)$ with $\epsilon \ll 1$, they are written in:
+\begin{align}
+&M \approx (1-a\epsilon) M^{0} + a\epsilon\Lambda ^{2}  \\
+& m \approx m^{0} (1-\frac{\lambda}{4\pi^{2}} \epsilon)
+\end{align}
+Again, $\lambda = 0$ agree with masses unchanged.  
+
+\end{document}

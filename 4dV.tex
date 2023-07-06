@@ -1,0 +1,60 @@
+\documentclass[fleqn]{article}
+\setlength{\mathindent}{3pt}
+
+\input{structure.tex}
+
+
+\begin{document}
+
+As we have seen, it is necessary to manipulate the trace 
+\begin{align}
+\Gamma _{\text{1-loop}} &= \frac{1}{2} \text{Tr} \ln D \nonumber \\
+&= -\frac{1}{2} \int _{0} ^{\infty} \frac{dt}{t} \text{Tr} e^{-tD}
+\end{align}
+in order to get the 1-loop correction to the effective action. One can compute it through the heat kernel expansion with their coefficients are specifically determined if the potential is specified. Notice that there are finitely many terms which involve the divergences. \\
+For a generic potential in a multiple-scalar theory:
+\begin{align}
+D = \frac{\delta ^{2} S} {\delta \phi ^{i} \delta \phi ^{j}} = -\square + U
+\end{align}
+where $U$ denotes the second functional derivative of the potential of the theory, namely $U = V^{(2)}$. \\
+Then:
+\begin{align}
+\Gamma _{\text{1-loop}} &= -\frac{1}{2} \int _{0}^{\infty} \frac{dt}{t} \text{Tr} e^{-tD}
+\end{align}
+can be expanded as:
+\begin{align}
+\Gamma_{\text{1-loop}} & = -\frac{1}{2}\lim_{m^{2} \to 0} \int _{0}^{\infty} \frac{dt}{t} e^{-tm^{2}}\sum_{k \geq 0} t^{\frac{k-d}{2}}a_{k} \nonumber \\
+&= -\frac{1}{2} \lim_{m^{2}\to 0} \lbrace \Gamma(-\frac{d}{2})(m^{2})^{d/2}a_{0} + \Gamma(1-\frac{d}{2})(m^{2})^{d/2 -1}a_{2} + \Gamma(2-\frac{d}{2})(m^{2})^{d/2 - 2} a_{4} + \cdots \rbrace 
+\end{align}
+Here $\Gamma(z)$ is the Gamma function. Notice that there are actually finite terms,  $k \leq d$, involving the divergences due to the property of the Gamma function. Thus for $d=4$, introducing $\epsilon$ such that $d \equiv 4-\epsilon$, and $\mu$:
+\begin{align}
+\Gamma _{\text{1-loop}} ^{\text{div}} &= -\frac{1}{2} \lim _{m^{2} \to 0} \mu^{\epsilon} \lbrace \Gamma(\frac{\epsilon}{2} -2) (m^{2})^{2-\epsilon /2} a_{0} + \Gamma(\frac{\epsilon}{2} -1) (m^{2})^{1-\epsilon/2} a_{2} + \Gamma(\frac{\epsilon}{2})(m^{2})^{\epsilon /2}a_{4} \rbrace \nonumber \\
+&\overrightarrow {\scalebox{0.7}{$d \to 4$}} -\frac{1}{2} \ln\frac{\zeta}{\mu ^{2}} a_{4} \nonumber \\
+&= -\frac{1}{2} \ln \frac{\zeta}{\mu^{2}} \frac{1}{(4\pi)^{2}}\int d^4x \sqrt{g} \text{Tr}(\frac{1}{2} U^{2}+ \frac{1}{6} \square U + \cdots )
+\end{align}
+here the expansion for small $\epsilon$ is applied as before and the form of the coefficient is borrowed from the literatures for the case considered now. Eventually, the RG equation for the potential is given:
+\begin{align}
+\mu \frac{\partial}{\partial \mu} V_{\mu} = \frac{1}{2} \frac{1}{(4\pi)^{2}}(V^{(2)})^2 
+\end{align}
+For instance, for $\phi ^{4} $-theory in $d=4$, the potential and its functional second derivative are written in the forms:
+\begin{align}
+&V = \frac{1}{2}m^{2}\phi ^{2} + \frac{1}{4!} \lambda \phi ^{4} \\
+&V^{(2)} = m^{2} + \frac{1}{2} \lambda \phi^{2}
+\end{align}
+respectively. Therefore:
+\begin{align}
+&\mu \frac{\partial}{\partial \mu} (\frac{1}{2} m_{\mu}^{2} \phi ^{2} + \frac{\lambda _{\mu}}{4!} \phi ^{4}) = \frac{1}{2}\frac{1}{(4\pi)^{2}}(m^{2} + \frac{\lambda}{2}\phi ^{2})^{2} \nonumber \\
+\Leftrightarrow &\begin{cases}
+\mu \frac{\partial m_{\mu}^{2}}{\partial \mu} = \frac{1}{16\pi ^{2}}\lambda m^{2} \\
+\mu \frac{\partial \lambda_{\mu}}{\partial \mu} = \frac{3}{16\pi^{2}}\lambda ^{2}
+\end{cases}
+\end{align}
+which coincide with what computed before. 
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,105 @@
+\documentclass[fleqn]{article}
+\setlength{\mathindent}{3pt}
+\usepackage{bbold}
+\usepackage{hyperref}
+\usepackage[overload]{empheq}
+\input{structure.tex}
+
+
+\begin{document}
+Start with some corrections for previous note. Instead of $\frac{1}{\varphi_{2} ^{2}}$, putting a scale into a metric as $\frac{k}{\varphi _{2} ^{2}}$. The geodesics equations for $\dot \varphi_{1} =0$ leads $\dot \varphi_{2} / \varphi _{2} = c$ with some real constant $c$. Integration with respective to s yields $\varphi _{2} = \varphi _{2} ^{0}e^{cs}$. Considering the condition:
+\begin{align}
+1=  G_{ij} \dot \varphi_{i} \dot \varphi _{j} = \frac{k}{\varphi_{2} ^{2}} (\dot \varphi _{1} ^{2} + \dot \varphi _{2} ^{2}) = k c^{2} 
+\end{align}
+Hence, $c= \pm \frac{1}{\sqrt{k}}$, and the vertical geodesics are $(\varphi _{1} , \varphi _{2}) = (\varphi _{1} ^{0}, \varphi _{2} ^{0} e^{\pm s / \sqrt{k}})$ with signs on the exponential standing for the direction of lines traverse. Let us observe how these geodesics alter their form as the metric flows. As previously seen, at the scale $\mu = \Lambda (1-\epsilon)$, where $\epsilon \ll 1$, $\varphi _{1}$ no longer remains constant. From one of the geodesics equations, it can be deduced   that:
+\begin{align}
+&\dot \varphi _{1} = \frac{\epsilon}{8\pi ^{2} k} \lbrace (M_{2} - M_{1} )\dot \varphi _{1} \mp \frac{2m}{\sqrt{k}} \varphi _{2} \rbrace \\
+\Rightarrow & \dot \varphi_{1} = \mp \frac{\epsilon}{4\pi^{2} k} \frac{m}{\sqrt{k}}\varphi_{2} + O(\epsilon^{2})
+\end{align}
+from which:
+\begin{align}
+\label{eq:8}
+\varphi_{1} = \varphi _{1} ^{0} \mp \frac{\epsilon}{4\pi ^{2} k} m (\varphi _{2} - \varphi_{2} ^{0})
+\end{align}
+Also, the Hessian matrix needs to be fixed. Since the potential with the interaction terms is $V = \frac{1}{2} M_{ij} \varphi _{i}\varphi_{j} + \frac{\lambda} {4} (\varphi_{1}^{2} + \varphi_{2} ^{2} )^{2}$, the Hessian is given:
+\begin{align}
+H = 
+\begin{bmatrix}
+M_{1} + \lambda(3\varphi_{1}^{2} + \varphi_{2} ^{2}) & m + 2\lambda \varphi_{1}\varphi_{2} \\
+m + 2\lambda \varphi_{1}\varphi_{2} & M_{2} + \lambda(3\varphi_{2}^{2} + \varphi_{1} ^{2})
+\end{bmatrix}
+\end{align}
+Therefore, the flow equations for the masses are:
+\begin{align}[left=\empheqlbrace]
+\label{eq:1}
+\mu \frac{\partial}{\partial \mu} M_{1} &= \frac{\lambda}{16\pi^{2}} (-4\mu^{2} + 3M_{1} + M_{2}) \\
+\label{eq:2}
+\mu \frac{\partial}{\partial \mu} M_{2} &= \frac{\lambda}{16\pi^{2}} (-4\mu^{2} + 3M_{2} + M_{1}) \\
+\mu \frac{\partial}{\partial \mu} m & = \frac{\lambda} {4\pi^{2}} m
+\end{align}
+It could immediately be obtained that:
+\begin{align}
+m = m^{0} (\frac{\mu}{\Lambda})^{\lambda / 4\pi^{2}}
+\end{align}
+In addition, for eq.(\ref{eq:1}) and (\ref{eq:2}), by adding and subtracting both side:
+\begin{align}[left=\empheqlbrace]
+\label{eq:3}
+\mu \frac{\partial}{\partial \mu} (M_{1} + M_{2}) &= \frac{\lambda}{4\pi ^{2}}(M_{1} + M_{2} -2\mu^{2}) \\
+\label{eq:4}
+\mu \frac{\partial}{\partial \mu} (M_{1} - M_{2}) & = \frac{\lambda}{8\pi^{2}} (M_{1} - M_{2}) 
+\end{align}
+eq.(\ref{eq:3}) reads, with $a= \frac{\lambda}{16\pi^{2}}$ and $M_{+} = M_{1} + M_{2}$:
+\begin{align}
+&\frac{\partial M_{+}}{\partial \mu} -4a \frac{M_{+}}{\mu}= -8a\mu   \nonumber \\
+\Rightarrow & \mu ^{-4a} \frac{\partial M_{+}}{\partial \mu} - (4a\mu^{-4a-1})M_{+} = -8a\mu^{-4a+1} \nonumber \\
+\therefore & \frac{\partial}{\partial \mu} (\mu^{-4a} M) = -8a\mu ^{-4a+1}
+\end{align}
+Integrating both side:
+\begin{align}
+\label{eq:5}
+M_{+} = M_{+}^{0} (\frac{\mu}{\Lambda})^{4a} + \frac{4a}{2a-1} (\mu^{2} - \Lambda ^{2} (\frac{\mu}{\Lambda})^{4a})
+\end{align}
+Furthermore, from eq.(\ref{eq:4}):
+\begin{align}
+\label{eq:6}
+M_{-} = M_{-}^0 (\frac{\mu}{\Lambda})^{2a}
+\end{align}
+Thus, each mass can be written in:
+\begin{align}
+M_{1} &= \frac{1}{2} [(\frac{\mu}{\Lambda})^{2a} (1+ (\frac{\mu}{\Lambda})^{2a})M_{1} ^{0} + (\frac{\mu}{\Lambda})^{2a} (-1 + (\frac{\mu}{\Lambda})^{2a}) M_{2}^{0} + \frac{4a}{2a-1} (\mu^{2} - \Lambda  ^{2} (\frac{\mu}{\Lambda})^{4a})] \\
+M_{2} &= \frac{1}{2} [(\frac{\mu}{\Lambda})^{2a} (-1+ (\frac{\mu}{\Lambda})^{2a})M_{1} ^{0} + (\frac{\mu}{\Lambda})^{2a} (1 + (\frac{\mu}{\Lambda})^{2a}) M_{2}^{0} + \frac{4a}{2a-1} (\mu^{2} - \Lambda  ^{2} (\frac{\mu}{\Lambda})^{4a})] 
+\end{align}
+\indent Then let us compute the distance between two points $(\varphi_{1} ^{0}, \varphi_{2}^{0})$ and $(\varphi_{1},\varphi _{2})$. First of all, the distance s for unperturbed metric can be computed as follow:
+\begin{align}
+s &= \int _{0} ^{s} ds = \int \sqrt{G_{ij} \varphi_{i}\varphi_{j}} \nonumber \\
+& = \int \sqrt{\frac{k(d\varphi_{1}^{2} + d\varphi_{2}^{2} )}{\varphi_{2}^{2}}} \nonumber \\
+&= \int \sqrt{k} \frac{1}{\varphi_{2}} d\varphi _{2} \nonumber \\
+\label{eq:7}
+&= \sqrt{k} |\ln (\frac{\varphi_{2}} {\varphi_{2} ^{0}})| 
+\end{align}
+Through the same procedure, the distance for perturbed metric also can be obtained:
+\begin{align}
+\tilde s &= \int \frac{1}{\varphi_{2}} \sqrt{(k+ \frac{\epsilon}{8\pi^{2}}(\Lambda ^{2} -M_{2}))d\varphi_{1}^{2} + \frac{\epsilon}{4\pi^{2}}d\varphi_{1}d\varphi_{2} + (k + \frac{\epsilon}{8\pi^{2}}(\Lambda ^{2} - M_{1}) )d\varphi_{2} ^{2}} \nonumber \\
+&= \int \frac{1}{\varphi_{2}} \sqrt{(k+\frac{\epsilon}{8\pi^{2}})(\Lambda^{2} -M_{2}) (\frac{\epsilon}{4\pi^{2}k}m)^{2} \mp \frac{\epsilon}{4\pi^{2}} \frac{\epsilon}{4\pi^{2}k}m + (k + \frac{\epsilon}{8\pi^{2}}(\Lambda ^{2} - M_{1}))}d\varphi_{2} \nonumber \\
+&\approx \sqrt{k}[1 + \frac{1}{2} \lbrace \frac{\epsilon}{8\pi^{2}k} (\Lambda^{2} -M_{1}) + \text{O}(\epsilon^{2})\rbrace] \lvert \ln(\frac{\varphi_{2}}{\varphi_{2}^{0}}) \rvert \nonumber \\
+\therefore  \tilde s &= \sqrt{k} [1 + \frac{\epsilon}{16\pi^{2} k} (\Lambda ^{2} -M_{1})] \lvert \ln (\frac{\varphi_{2}} {\varphi_{2} ^{0}}) \rvert  
+\end{align}
+notice that from first to second line, (\ref{eq:8}) was used.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
